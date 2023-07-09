@@ -1,0 +1,17 @@
+[
+    {
+        "username": "@AdemoyeJohn",
+        "name": "Tobi",
+        "emoji": "✨",
+        "avatar": "https://i.pravatar.cc/150?img=10"
+      },{
+        "username": "@JohnDoe",
+        "name": "John Doe",
+        "emoji": "🤔",
+        "avatar": "https://i.pravatar.cc/150?img=15"
+      },{
+        "username": "@AliceSmith",
+        "name": "Alice Smith",
+        "avatar": "https://i.pravatar.cc/150?img=25"
+      }
+]

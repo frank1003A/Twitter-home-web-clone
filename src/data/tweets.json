@@ -1,0 +1,126 @@
+[
+    {
+        "avatar": "https://i.pravatar.cc/150?img=1",
+        "username": "daveChap🥑📌",
+        "name": "dave_coe",
+        "time": "16h",
+        "content": "Lorem ipsum dolor sit amet...",
+        "status": "blue",
+        "replies": 10,
+        "retweets": 5,
+        "likes": 20,
+        "views": 100
+      },
+      
+      {
+        "avatar": "https://i.pravatar.cc/150?img=2",
+        "username": "cleverCoder42👩‍💻",
+        "name": "John_Doe",
+        "time": "16h",
+        "status": "blue",
+        "replies": 10,
+        "retweets": 5,
+        "likes": 20,
+        "views": 100
+      },
+      {
+        "avatar": "https://i.pravatar.cc/150?img=3",
+        "username": "swiftScribe🥑🎞🎍",
+        "name": "Jane_Smith",
+        "time": "10h",
+        "images": [
+          "https://i.pravatar.cc/250?img=10"
+        ],
+        "content": "Ut enim ad minim veniam...",
+        "status": "gold",
+        "replies": 8,
+        "retweets": 2,
+        "likes": 15,
+        "views": 50
+      },
+      {
+        "avatar": "https://i.pravatar.cc/150?img=1",
+        "username": "cleverCoder42🎞🎍",
+        "name": "John_Doe",
+        "time": "16h",
+        "content": "Lorem ipsum dolor sit amet...",
+        "status": "none",
+        "replies": 10,
+        "retweets": 5,
+        "likes": 20,
+        "views": 100
+      },
+      {
+        "avatar": "https://i.pravatar.cc/150?img=2",
+        "username": "swiftScribe🎍",
+        "name": "Jane_Smith",
+        "time": "10h",
+        "images": [
+          "https://i.pravatar.cc/250?img=1",
+          "https://i.pravatar.cc/250?img=2"
+        ],
+        "status": "none",
+        "replies": 8,
+        "retweets": 2,
+        "likes": 15,
+        "views": 50
+      },
+      {
+        "avatar": "https://i.pravatar.cc/150?img=3",
+        "username": "quirkyDoodle",
+        "name": "Lisa_Johnson",
+        "time": "3h",
+        "images": [
+          "https://i.pravatar.cc/250?img=3"
+        ],
+        "content": "Duis aute irure dolor in...",
+        "status": "blue",
+        "replies": 5,
+        "retweets": 1,
+        "likes": 8,
+        "views": 30
+      },
+      {
+        "avatar": "https://i.pravatar.cc/150?img=4",
+        "username": "creativeMinds✌",
+        "name": "Alex_Parker",
+        "time": "20h",
+        "images": [
+          "https://i.pravatar.cc/250?img=4"
+        ],
+        "content": "Excepteur sint occaecat cupidatat...",
+        "status": "gold",
+        "replies": 12,
+        "retweets": 3,
+        "likes": 25,
+        "views": 80
+      },
+      {
+        "avatar": "https://i.pravatar.cc/150?img=5",
+        "username": "wanderingWords",
+        "name": "Emily_Green😝",
+        "time": "12h",
+        "content": "Nemo enim ipsam voluptatem...",
+        "status": "blue",
+        "replies": 7,
+        "retweets": 4,
+        "likes": 18,
+        "views": 65
+      },
+      {
+        "avatar": "https://i.pravatar.cc/150?img=6",
+        "username": "codingNinja🎞😝",
+        "name": "David_Smith",
+        "time": "7h",
+        "images": [
+          "https://i.pravatar.cc/250?img=7"
+        ],
+        "content": "Sed ut perspiciatis unde omnis...",
+        "status": "gold",
+        "replies": 9,
+        "retweets": 6,
+        "likes": 30,
+        "views": 120
+      }
+  ]
+  

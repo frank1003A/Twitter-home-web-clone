@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Elon Musk",
+        "tweetVolume": "10k",
+        "category": "Tech"
+      },
+      {
+        "name": "LeBron James",
+        "tweetVolume": "5.3k",
+        "category": "Sports"
+      },
+      {
+        "name": "Beyoncé",
+        "tweetVolume": "2.1k",
+        "category": "Entertainment"
+      },
+      {
+        "name": "Gucci",
+        "tweetVolume": "1,500",
+        "category": "Style"
+      },
+      {
+        "name": "FOX",
+        "tweetVolume": "8.5k",
+        "category": "News"
+      },
+      {
+        "name": "Jamie Oliver",
+        "tweetVolume": "1,543",
+        "category": "Lifestyle"
+      },
+      {
+        "name": "Uselessdashians",
+        "tweetVolume": "40.8k",
+        "category": "Lifestyle"
+      },
+      {
+        "name": "Christopher Nolan",
+        "tweetVolume": "30.2",
+        "category": "Entertainment"
+      },
+      {
+        "name": "Dr. Oz",
+        "tweetVolume": "20.1k",
+        "category": "Wellness"
+      },
+      {
+        "name": "PlayStation",
+        "tweetVolume": "100k",
+        "category": "Entertainment"
+      }
+  ]

@@ -1,0 +1,61 @@
+// gont: twitterchirp
+:root {
+  font-family: "Nunito Sans", sans-serif;
+  /* root variables*/
+  //--mainbg: #ffffff;
+  --mainbg: #15202b;
+  --primary-color: #1d9bf0;
+  --cardbg: #1e2732;
+  --border: #38444d;
+  --white: #fff;
+  --font: #8b98a5;
+  --font2: rgb(139, 152, 165);
+}
+
+[data-theme="light"] {
+  /* root light*/
+  --mainbg: #ffffff;
+  --mainbg: #15202b;
+  --primary-color: #1d9bf0;
+  --cardbg: #1e2732;
+  --border: #38444d;
+  --white: #fff;
+  --font: #8b98a5;
+  --font2: rgb(139, 152, 165);
+}
+
+[data-theme="dark"] {
+  /* root dark*/
+  --mainbg: #15202b;
+  --mainbg-dark-rgb: rgb(21, 32, 43);
+  --cardbg: #1e2732;
+  --mainbg: #15202b;
+  --primary-color: #1d9bf0;
+  --cardbg: #1e2732;
+  --border: #38444d;
+  --white: #fff;
+  --font: #8b98a5;
+  --font2: rgb(139, 152, 165);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  height: 100vh;
+}
+
+body {
+  color: #000;
+  background: var(--bg-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

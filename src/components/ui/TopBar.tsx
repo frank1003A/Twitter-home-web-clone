@@ -18,7 +18,8 @@ const TopBar = ({ children, title, toggleHamMenu, ...rest }: TopBarProps) => {
             className="xsm-bar"
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "flex-start",
+              gap: "30%",
             }}
           >
             <div className="ham-button" onClick={toggleHamMenu}>

@@ -4,31 +4,31 @@
   grid-template-columns: 320px 1fr;
   height: 100vh;
   background-color: var(--mainbg);
-  overflow: hidden;
+  overflow-y: auto;
+}
 
-  header {
-    height: 100%;
-    border-right: 1px solid var(--border);
-    position: fixed;
-    width: 320px;
-    grid-area: header;
-    //transition: transform 0.5s ease 0s;
-    z-index: 10;
-    .wrapper {
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-      padding: 10px 2rem 0px 4rem;
-      height: 86vh;
-      overflow: auto;
+header {
+  height: 100%;
+  border-right: 1px solid var(--border);
+  position: fixed;
+  width: 320px;
+  grid-area: header;
+  transition: height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  z-index: 10;
+  .wrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px 2rem 0px 4rem;
+    height: 86vh;
+    overflow: auto;
 
-      #btn_desk {
-        display: block;
-      }
+    #btn_desk {
+      display: block;
+    }
 
-      #btn_mob {
-        display: none;
-      }
+    #btn_mob {
+      display: none;
     }
   }
 }
@@ -38,7 +38,10 @@ main {
   grid-template-columns: 600px 1fr;
   grid-template-areas: "tweets rightbar";
   grid-area: main;
-  overflow-y: auto;
+
+  section {
+    max-height: 100%;
+  }
 }
 
 button {
@@ -57,7 +60,7 @@ button {
   font-weight: 700;
   font-size: 15px;
   line-height: 24px;
-  padding: 8px 1rem;
+  padding: 5px 1rem;
   letter-spacing: normal;
 
   &.primary {
@@ -73,7 +76,7 @@ button {
 .follow-btn {
   border: none;
   border-radius: 9999px;
-  max-height: 50px;
+  max-height: 34px;
   background-color: var(--white);
   color: #000;
   font-size: 20px;
@@ -122,6 +125,7 @@ button {
       padding: 8px;
       height: 15px;
       display: flex;
+      border: 1.5px solid #273340;
       align-items: center;
       justify-content: center;
       font-size: 12px;
@@ -273,9 +277,8 @@ button {
     overflow: hidden;
     backdrop-filter: blur(15.9px);
     -webkit-backdrop-filter: blur(20px);
-    position: fixed;
-    left: 320px;
-    right: 447.5px;
+    position: sticky;
+    top: 0;
     transform: translate(0, 0);
     z-index: 9999;
 
@@ -346,7 +349,6 @@ button {
     padding: 16px;
     padding-top: 0px;
     padding-bottom: 0px;
-    margin-top: 120px;
 
     .avatar-wrap {
       display: flex;
@@ -415,7 +417,7 @@ button {
 
       .controls {
         display: flex;
-        padding: 0px 0px 12px 0px;
+        padding: 12px 0px 12px 0px;
         align-items: center;
         justify-content: space-between;
 
@@ -571,6 +573,10 @@ button {
             text-decoration: underline;
           }
         }
+
+        span.name {
+          max-width: none;
+        }
       }
 
       .icon-btn {
@@ -723,6 +729,7 @@ button {
   }
 }
 
+// bottom link on primary card
 .card-ls-link {
   border-radius: 0px 0px 20px 20px;
   position: relative;
@@ -743,6 +750,7 @@ button {
   }
 }
 
+//
 .user-to-follow {
   position: relative;
   display: flex;
@@ -770,14 +778,55 @@ button {
   }
 }
 
+// fixed message bar
+.messagebar {
+  position: fixed;
+  bottom: 0;
+  box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 15px,
+    rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+  max-width: 350px;
+  width: 350px;
+  border-radius: 10px 10px 0px 0px;
+  background: var(--mainbg);
+
+  .header {
+    display: flex;
+    height: 53px;
+    padding-left: 16px;
+    padding-right: 16px;
+    align-items: center;
+    h2 {
+      color: var(--white);
+    }
+
+    .controls {
+      margin-left: auto;
+      display: flex;
+    }
+  }
+
+  .messages {
+    transition: height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    max-height: 350px;
+    height: 0px;
+  }
+}
+
+// right section
 .rightbar {
   grid-area: rightbar;
+  height: fit-content;
+  min-height: 200px;
+  overflow: auto;
+  position: sticky;
+  top: 0;
 
   .wrapper {
-    padding: 10px 2.9rem 0px 2rem;
+    padding: 10px 4rem 0px 2rem;
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
+    margin-bottom: 80px;
 
     .search-wrapper {
       position: fixed;
@@ -786,7 +835,7 @@ button {
       left: 920px;
       top: 0;
       padding: 5px;
-      padding: 10px 2.9rem 8px 2rem;
+      padding: 10px 4rem 8px 2rem;
       background: var(--mainbg);
     }
 
@@ -794,15 +843,50 @@ button {
       margin-top: 50px;
     }
 
-    div.divider {
-      border-color: rgb(30, 39, 50);
-      margin-bottom: 16px;
-      border-top: 1px solid #1e2732;
-      background-color: rgb(30, 39, 50);
+    .links {
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        a,
+        span {
+          color: #75828f;
+          font-size: 15px;
+        }
+
+        span.more {
+          display: flex;
+          .text {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          .elli {
+            font-size: 20px;
+          }
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
 
+// divider
+.divider {
+  border-color: rgb(30, 39, 50);
+  margin-bottom: 16px;
+  border-top: 1px solid #1e2732;
+  background-color: rgb(30, 39, 50);
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+// popover menu
 .primary-menu {
   background-color: var(--mainbg);
   min-height: 30px;
@@ -826,9 +910,7 @@ button {
     unicode-bidi: isolate;
     border: 0 solid black;
     box-sizing: border-box;
-    /* display: inline; */
     white-space: pre-wrap;
-    /* padding-bottom: 4px; */
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 12px;
@@ -870,22 +952,129 @@ button {
   }
 }
 
-/*
-@media only screen and (min-width: 980px) {
-  main {
-    .home-tweets {
-      position: relative;
-      .top-bar {
-        left: 68px;
-        width: 100%;
+// hamburger menu
+.hamburger-menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  min-width: 300px;
+  min-height: 100vh;
+  box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 10px,
+    rgba(136, 153, 166, 0.25) 0px 1px 3px 1px;
+  z-index: 9999;
+  background: rgb(21, 32, 43);
+  transform: translateX(-100%);
+  transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  transition-duration: 250ms;
+  padding-bottom: 1.5rem;
+
+  .top {
+    height: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    h2 {
+      color: rgb(247, 249, 249);
+      font-size: 17px;
+      font-weight: 700;
+    }
+  }
+
+  .main-content {
+    height: 92vh;
+    overflow-y: auto;
+    .user {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .ava_btn {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .names {
+        display: flex;
+        flex-direction: column;
+
+        .name {
+          color: rgb(247, 249, 249);
+          font-size: 17px;
+          font-weight: 700;
+        }
+
+        .user-name {
+          color: rgb(139, 152, 165);
+        }
+      }
+
+      .follow_count {
+        color: rgb(139, 152, 165);
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.4rem;
+        font-size: 14px;
+
+        .following .count,
+        .followers .count {
+          color: rgb(247, 249, 249);
+          font-weight: 700;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .navigation {
+      padding-left: 5px;
+      padding-right: 16px;
+      margin-bottom: 5px;
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
     }
   }
 }
-*/
+
+.ham-overlay {
+  transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  background: rgba(91, 112, 131, 0.4);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 99;
+}
+
+// accordion
+.accordion {
+  display: flex;
+  padding: 16px;
+
+  .accordion-title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--whitefont);
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
 
 /*Small screens, laptops*/
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 1330px) {
   .base-wrapper {
     grid-template-columns: 68px 1fr;
     header {
@@ -931,7 +1120,7 @@ button {
         .top-bar {
           left: 68px;
           width: 100%;
-          max-width: 414px;
+          z-index: 90;
         }
 
         .tweet-bar {
@@ -966,6 +1155,22 @@ button {
             .controls {
               gap: 25px;
             }
+
+            .content {
+              .collage {
+                img {
+                  width: 100%;
+                }
+
+                img:first-of-type {
+                  border-radius: 10px 10px 0px 0px;
+                }
+
+                img:last-of-type {
+                  border-radius: 0px 0px 10px 10px;
+                }
+              }
+            }
           }
         }
       }
@@ -988,7 +1193,7 @@ button {
 }
 
 /*tablets/phone*/
-@media only screen and (max-width: 490px) {
+@media only screen and (max-width: 499px) {
   .base-wrapper {
     grid-template-columns: 1fr;
     position: relative;
@@ -1057,10 +1262,6 @@ button {
 
       .home-tweets {
         position: relative;
-        .top-bar {
-          left: 0px;
-          width: 100%;
-        }
 
         .tweet-bar {
           display: none;
@@ -1091,12 +1292,17 @@ button {
         }
 
         .tweet {
-          &:first-of-type {
-            margin-top: 100px;
-          }
           .main {
             .controls {
-              gap: 25px;
+              gap: 15px;
+            }
+
+            .user {
+              span.name {
+                max-width: 100px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
             }
           }
         }

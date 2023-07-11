@@ -8,7 +8,7 @@ export const useMediaQuery = (screen: string) => {
   const [matches, setMatches] = useState(false);
 
   const sizes: Sizes = {
-    xsm: "450px",
+    xsm: "499px",
     sm: "640px",
     md: "768px",
     lg: "1024px",

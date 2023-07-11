@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import SearchInput from "./components/core/Input/SearchInput";
 import Tweet from "./components/core/Tweet/Tweet";
@@ -13,6 +13,7 @@ import TopBar from "./components/ui/TopBar";
 // Data
 import Avatar from "./components/core/Avatar/Avatar";
 import HamburgerMenu from "./components/core/Navigation/HamburgerMenu";
+import Loader from "./components/ui/Loader";
 import MessageBar from "./components/ui/MessageBar";
 import trendData from "./data/trends.json";
 import tweetData from "./data/tweets.json";
@@ -20,7 +21,21 @@ import WTFData from "./data/wtf.json";
 
 function App() {
   const [toggleHamMenu, setToggleHamMenu] = useState<boolean>(false);
+  const [mount, setMount] = useState<boolean>(true);
+  const [timeLeft, setTimeLeft] = useState(10);
 
+  useEffect(() => {
+    if (!timeLeft) return;
+    const intervalId = setInterval(() => {
+      setTimeLeft(timeLeft - 1);
+      setMount(false);
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, [timeLeft, mount]);
+
+  if (mount) {
+    return <Loader />;
+  }
   return (
     <BaseLayout>
       <Section className="home-tweets">

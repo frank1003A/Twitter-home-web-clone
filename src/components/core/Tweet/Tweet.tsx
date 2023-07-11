@@ -4,6 +4,7 @@ import blueVerificationBadge from "../../assets/svg/verified-b.svg";
 import Avatar from "../Avatar/Avatar";
 
 //
+import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import dots from "../../assets/svg/3dot.svg";
 import likeIcon from "../../assets/tweetcontrols/like.svg";
 import replyIcon from "../../assets/tweetcontrols/reply.svg";
@@ -56,6 +57,7 @@ const Tweet = ({
   time,
   views,
 }: TweetProps) => {
+  const mediaQuery = useMediaQuery("xsm");
   const collageImageRender = images?.map((img, idx) => {
     return (
       <img
@@ -73,31 +75,35 @@ const Tweet = ({
       </div>
       <div className="main">
         <div className="user">
-          <span className="username">
-            <a href="/profile">{username}</a>
-          </span>
-          {status !== "none" && (
-            <span className="badge">
-              {/** BADGE VARIANTS HANDLING */}
-              <img
-                src={
-                  status === "blue"
-                    ? blueVerificationBadge
-                    : goldVerificationBadge
-                }
-                alt="verified_badge"
-                draggable={false}
-              />
+          <div>
+            <span className="username">
+              <a href="/profile">{username}</a>
             </span>
-          )}
-          <span className="name">@{name}</span>
-          <span className="time">.{time}</span>
+            {status !== "none" && (
+              <span className="badge">
+                {/** BADGE VARIANTS HANDLING */}
+                <img
+                  src={
+                    status === "blue"
+                      ? blueVerificationBadge
+                      : goldVerificationBadge
+                  }
+                  alt="verified_badge"
+                  draggable={false}
+                />
+              </span>
+            )}
+          </div>
+          <div>
+            <span className="name">@{name}</span>
+            <span className="time">.{time}</span>
+          </div>
           <IconButton
             style={{
               marginLeft: "auto",
               padding: 5,
               position: "absolute",
-              right: 5,
+              right: mediaQuery ? 20 : 5,
               top: 5,
               zIndex: 2,
             }}

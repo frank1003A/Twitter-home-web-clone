@@ -11,39 +11,38 @@ interface AvatarProps extends React.ComponentPropsWithoutRef<"img"> {
   status?: "blue" | "gold" | "none";
 }
 
-const Avatar = ({
-  src,
-  hasMenu,
-  avatar,
-  name,
-  status,
-  username,
-}: AvatarProps) => {
+const Avatar = ({ src, hasMenu }: AvatarProps) => {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const [menuToggle, setMenuToggle] = useState<boolean>(false);
 
   useEffect(() => {
-    let image = imageRef.current!;
+    if (src) {
+      let image = imageRef.current!;
 
-    image.addEventListener("mouseenter", () => setMenuToggle(true));
-    image.addEventListener("mouseleave", () => setMenuToggle(false));
+      image.addEventListener("mouseenter", () => setMenuToggle(true));
+      image.addEventListener("mouseleave", () => setMenuToggle(false));
 
-    return () => {
-      image.removeEventListener("mouseenter", () => setMenuToggle(true));
-      image.removeEventListener("mouseleave", () => setMenuToggle(false));
-    };
-  }, []);
+      return () => {
+        image.removeEventListener("mouseenter", () => setMenuToggle(true));
+        image.removeEventListener("mouseleave", () => setMenuToggle(false));
+      };
+    }
+  }, [src]);
 
   return (
     <>
       <div className="avatar-container">
-        <img
-          src={src}
-          ref={imageRef}
-          className="img-avatar"
-          alt="image_avatar"
-          draggable={false}
-        />
+        {!src ? (
+          <div className="avatar-container"></div>
+        ) : (
+          <img
+            src={src}
+            ref={imageRef}
+            className="img-avatar"
+            alt="image_avatar"
+            draggable={false}
+          />
+        )}
       </div>
       {menuToggle && hasMenu && <Menu>{/** */}</Menu>}
     </>

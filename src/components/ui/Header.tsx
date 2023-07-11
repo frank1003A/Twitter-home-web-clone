@@ -55,7 +55,7 @@ const Header = () => {
   });
 
   return (
-    <header role="banner">
+    <header role="navigation">
       <div className="wrapper">
         <section className="icon">
           <IconButton>

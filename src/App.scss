@@ -1073,6 +1073,22 @@ button {
   }
 }
 
+//
+.absolute-center {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: var(--mainbg);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /*Small screens, laptops*/
 @media only screen and (max-width: 1330px) {
   .base-wrapper {
@@ -1293,11 +1309,24 @@ button {
 
         .tweet {
           .main {
+            gap: 1rem;
             .controls {
-              gap: 15px;
+              gap: 32px;
+
+              .twt-icon:nth-child(4) {
+                display: none;
+              }
             }
 
             .user {
+              flex-direction: column;
+              text-align: left;
+              align-items: flex-start;
+              gap: 0;
+
+              div {
+                display: flex;
+              }
               span.name {
                 max-width: 100px;
                 overflow: hidden;

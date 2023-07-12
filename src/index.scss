@@ -1,42 +1,104 @@
-// gont: twitterchirp
+// font: twitterchirp
 :root {
   font-family: "Nunito Sans", sans-serif;
   /* root variables*/
-  //--mainbg: #ffffff;
-  --mainbg: #15202b;
-  --primary-color: #1d9bf0;
-  --cardbg: #1e2732;
-  --border: #38444d;
+  --logo: invert(47%) sepia(48%) saturate(2176%) hue-rotate(179deg)
+    brightness(99%) contrast(90%);
+  --mainbg: #ffffff;
+  --primary-color: #1da1f2;
+  --cardbg: #f7f9f9;
+  --border: #eff3f4;
   --white: #fff;
-  --font: #8b98a5;
+
+  // hover
+  --primaryhover: rgba(0, 0, 0, 0.03);
+  --tweethover: rgba(0, 0, 0, 0.03);
+  --linkbtnhover: rgba(15, 20, 25, 0.1);
+  --twticonbtnhover: rgba(29, 155, 240, 0.1);
+  --text: #000;
+  --font: rgb(83, 100, 113);
   --font2: rgb(139, 152, 165);
   --whitefont: rgb(247, 249, 249);
+  --filter: invert(1);
+
+  --divider: rgb(239, 243, 244);
+
+  --badgebd: #ffffff;
+  --badgeColor: #ffffff;
+  --white_dark: #ffffff;
+
+  //hamburger menu
+  --hambg: #ffffff;
+  --color1: #000;
+  --color2: rgb(139, 152, 165);
+  --count: #000;
 }
 
 [data-theme="light"] {
   /* root light*/
+  --logo: invert(47%) sepia(48%) saturate(2176%) hue-rotate(179deg)
+    brightness(99%) contrast(90%);
   --mainbg: #ffffff;
-  --mainbg: #15202b;
-  --primary-color: #1d9bf0;
-  --cardbg: #1e2732;
-  --border: #38444d;
+  --primary-color: #1e9cf1;
+  --cardbg: #f7f9f9;
+  --border: #eff3f4;
   --white: #fff;
-  --font: #8b98a5;
+
+  //hover
+  --primaryhover: rgba(0, 0, 0, 0.03);
+  --tweethover: rgba(0, 0, 0, 0.03);
+  --linkbtnhover: rgba(15, 20, 25, 0.1);
+  --twticonbtnhover: rgba(29, 155, 240, 0.1);
+  --text: #000;
+  --font: rgb(83, 100, 113);
   --font2: rgb(139, 152, 165);
+  --filter: invert(1);
+
+  --divider: rgb(239, 243, 244);
+
+  --badgebd: #ffffff;
+  --badgeColor: #ffffff;
+  --white_dark: #ffffff;
+
+  //hamburger menu
+  --hambg: #ffffff;
+  --color1: #000;
+  --color2: rgb(139, 152, 165);
+  --count: #000;
 }
 
 [data-theme="dark"] {
   /* root dark*/
+  --logo: none;
   --mainbg: #15202b;
   --mainbg-dark-rgb: rgb(21, 32, 43);
   --cardbg: #1e2732;
   --mainbg: #15202b;
-  --primary-color: #1d9bf0;
-  --cardbg: #1e2732;
+  --primary-color: #1e9cf1;
   --border: #38444d;
   --white: #fff;
+  --primaryhover: #273340;
+
+  //hover
+  --tweethover: rgba(255, 255, 255, 0.03);
+  --linkbtnhover: rgb(239 243 244 / 12%);
+  --twticonbtnhover: rgb(239 243 244 / 12%);
+  --text: #fff;
   --font: #8b98a5;
   --font2: rgb(139, 152, 165);
+  --filter: none;
+
+  --divider: #1e2732;
+
+  --badgebd: #273340;
+  --badgeColor: #ffffff;
+  --white_dark: #000;
+
+  //hamburger menu
+  --hambg: rgb(21, 32, 43);
+  --color1: rgb(247, 249, 249);
+  --color2: rgb(139, 152, 165);
+  --count: rgb(247, 249, 249);
 }
 
 * {

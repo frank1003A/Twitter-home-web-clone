@@ -8,8 +8,9 @@ import mIcon from "../assets/message/messages-2.svg";
 
 interface MessageBarProps {
   children: ReactNode;
+  messageClass?: string;
 }
-const MessageBar = ({ children }: MessageBarProps) => {
+const MessageBar = ({ children, messageClass }: MessageBarProps) => {
   const [toggleMesage, setToggleMessage] = useState<boolean>(false);
   return (
     <div className="messagebar">
@@ -32,7 +33,7 @@ const MessageBar = ({ children }: MessageBarProps) => {
         </div>
       </div>
       <div
-        className="messages"
+        className={messageClass ? messageClass : "messages"}
         style={{ height: toggleMesage ? "350px" : "0px" }}
       >
         {children}

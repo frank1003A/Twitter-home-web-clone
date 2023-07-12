@@ -3,7 +3,7 @@ import Avatar from "../Avatar/Avatar";
 import Button from "../buttons/Button";
 
 //
-import { useState } from "react";
+import { useRef, useState } from "react";
 import evIcon from "../../assets/svg/everyone.svg";
 import plusIcon from "../../assets/svg/plus.svg";
 import emojiIcon from "../../assets/tbcontrols/emoji.svg";
@@ -21,6 +21,7 @@ import Loader from "./Loader";
 
 //audience dropdown
 import eIcon from "../../assets/svg/aud_everyone.svg";
+import fIcon from "../../assets/svg/flower.svg";
 import tIcon from "../../assets/svg/tw_circle.svg";
 import Draft from "./Draft";
 
@@ -30,6 +31,10 @@ const TweetBar = () => {
   const mbIcons = [mediaIcon, gificon, emojiIcon, locIcon];
   const [count, setCount] = useState<number>();
   const [isFocused, setFocus] = useState<boolean>(false);
+
+  //REFS
+  const audRef = useRef<HTMLDivElement | null>(null);
+  const simRef = useRef<HTMLDivElement | null>(null);
 
   const [textContext, setTextContext] = useState<{
     isMaxed: boolean;
@@ -48,7 +53,7 @@ const TweetBar = () => {
         className="twt-icon-btn"
         id="icon-button-desktop"
         style={{ padding: 6, marginRight: 2 }}
-        key={`${index}_icon`}
+        key={`${icon}_key`}
       >
         <img style={{ maxHeight: 20 }} src={icon} alt="media_icon" />
       </IconButton>
@@ -99,6 +104,10 @@ const TweetBar = () => {
     { text: "Twitter Circle", icon: tIcon, iconColor: "#00ba7c" },
   ];
 
+  const simulate = [
+    { text: "Simulate Tweet", icon: fIcon, iconColor: "#1d9bf0" },
+  ];
+
   return (
     <div className="tweet-bar">
       <div className="avatar-wrap">
@@ -106,15 +115,15 @@ const TweetBar = () => {
       </div>
       <div className="main">
         {isFocused && (
-          <DropdownButton title="Everyone">
-            <Menu>
+          <DropdownButton menuRef={audRef} title="Everyone">
+            <Menu ref={audRef}>
               <div className="hd">
                 <span>Choose audience</span>
               </div>
               <div className="menu-items">
                 {audience.map((a, i) => {
                   return (
-                    <div className="item" role="menuitem">
+                    <div className="item" role="menuitem" key={`${a.text}`}>
                       <div
                         className="img"
                         style={{ backgroundColor: a.iconColor }}
@@ -137,12 +146,19 @@ const TweetBar = () => {
         />
         {isFocused && (
           <div className="extra">
-            <DropdownButton title="simulate tweet" icon={evIcon}>
-              <Menu>
+            <DropdownButton
+              menuRef={simRef}
+              title="simulate tweet"
+              icon={evIcon}
+            >
+              <Menu ref={simRef}>
+                <div className="hd">
+                  <span>Choose process</span>
+                </div>
                 <div className="menu-items">
-                  {audience.map((a, i) => {
+                  {simulate.map((a, i) => {
                     return (
-                      <div className="item" role="menuitem">
+                      <div className="item" role="menuitem" key={`${a.text}`}>
                         <div
                           className="img"
                           style={{ backgroundColor: a.iconColor }}

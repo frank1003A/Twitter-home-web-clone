@@ -58,7 +58,7 @@ const Header = () => {
     <header role="navigation">
       <div className="wrapper">
         <section className="icon">
-          <IconButton>
+          <IconButton id="logo">
             <img src={wtl} alt="white-twitter-logo" />
           </IconButton>
         </section>
@@ -69,7 +69,7 @@ const Header = () => {
           className="btn primary"
           id="btn_desk"
           disabled
-          style={{ marginTop: 5, height: 50 }}
+          style={{ marginTop: 5, minHeight: 50 }}
         >
           Tweet
         </Button>

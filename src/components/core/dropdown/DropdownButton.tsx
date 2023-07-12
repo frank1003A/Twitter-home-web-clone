@@ -1,13 +1,21 @@
+import useOnClickOutside from "hooks/useOnClickOutside";
 import { useState } from "react";
 import dicon from "../../assets/svg/dropdown_icon.svg";
 
 interface DropdownButtonProps extends React.ComponentPropsWithoutRef<"div"> {
   title: string;
   icon?: string;
+  menuRef: React.RefObject<HTMLElement>;
 }
 
-const DropdownButton = ({ title, icon, children }: DropdownButtonProps) => {
+const DropdownButton = ({
+  title,
+  icon,
+  children,
+  menuRef,
+}: DropdownButtonProps) => {
   const [menToggle, setMenuToggle] = useState<boolean>(false);
+  useOnClickOutside(menuRef, () => setMenuToggle(false));
   return (
     <div
       style={{ position: "relative" }}

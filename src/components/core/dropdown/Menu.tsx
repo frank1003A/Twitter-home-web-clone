@@ -1,10 +1,13 @@
-interface MenuProps extends React.ComponentPropsWithoutRef<"div"> {
-  // Define Additional Props Here
+import { ReactNode } from "react";
+
+interface MenuProps {
+  ref?: React.LegacyRef<HTMLDivElement>;
+  children: ReactNode;
 }
 
-const Menu = ({ children }: MenuProps) => {
+const Menu = ({ children, ref }: MenuProps) => {
   return (
-    <div className="primary-menu" role="menu">
+    <div className="primary-menu" role="menu" ref={ref}>
       {children}
     </div>
   );

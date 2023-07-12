@@ -11,6 +11,7 @@ import Accordion from "../Accordion/Accordion";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../buttons/IconButton";
 import LinkButton from "../buttons/LinkButton";
+import Overlay from "./Overlay";
 
 interface HamburgerMenuProps {
   toggle: boolean;
@@ -29,9 +30,9 @@ const HamburgerMenu = ({ toggle, onClose }: HamburgerMenuProps) => {
     { title: "Bookmarks", icon: bIcon },
   ];
 
-  const navLinks = links.map((link, index) => {
+  const navLinks = links.map((link) => {
     return (
-      <LinkButton href={`/${link.title}`} key={index}>
+      <LinkButton href={`/${link.title}`} key={`${link.title}_btn`}>
         <div className="img-wrapper">
           {link.badge && <span className="badge">{link.badge}</span>}
           {link.updateBadge && <span className="update-badge" />}
@@ -44,68 +45,66 @@ const HamburgerMenu = ({ toggle, onClose }: HamburgerMenuProps) => {
 
   return (
     <>
-      {toggle && (
-        <div className="ham-overlay" role="presentation">
-          <div
-            className="hamburger-menu"
-            role="dialog"
+      <Overlay toggle={toggle} onClose={onClose}></Overlay>
+      <div
+        className="hamburger-menu"
+        role="dialog"
+        style={{
+          transform: toggle ? "translateX(0%)" : "translateX(-100%)",
+          boxShadow: toggle ? "none" : "initial",
+        }}
+      >
+        <div className="top">
+          <h2>Account info</h2>
+          <IconButton
             style={{
-              transform: toggle ? "translateX(0%)" : "translateX(-100%)",
+              padding: 5,
+              width: 30,
+              height: 30,
             }}
+            onClick={onClose}
           >
-            <div className="top">
-              <h2>Account info</h2>
+            <img src={cIcon} alt="close_icon" />
+          </IconButton>
+        </div>
+        <div className="main-content">
+          <div className="user">
+            <div className="ava_btn">
+              <Avatar />
               <IconButton
                 style={{
+                  border: "1px solid #38444d",
                   padding: 5,
                   width: 30,
                   height: 30,
                 }}
-                onClick={onClose}
               >
-                <img src={cIcon} alt="close_icon" />
+                <img src={plus} alt="plus_icon" />
               </IconButton>
             </div>
-            <div className="main-content">
-              <div className="user">
-                <div className="ava_btn">
-                  <Avatar />
-                  <IconButton
-                    style={{
-                      border: "1px solid #38444d",
-                      padding: 5,
-                      width: 30,
-                      height: 30,
-                    }}
-                  >
-                    <img src={plus} alt="plus_icon" />
-                  </IconButton>
-                </div>
-                <div className="names">
-                  <span className="name">Frank Ezene</span>
-                  <span className="user-name">@frankezene</span>
-                </div>
-                <div className="follow_count">
-                  <span className="following">
-                    <span className="count">145</span>Following
-                  </span>
-                  <span className="followers">
-                    <span className="count">20</span>Followers
-                  </span>
-                </div>
-              </div>
-              <div className="navigation" role="navigation">
-                <nav>{navLinks}</nav>
-              </div>
-              <div className="divider"></div>
-              <Accordion title="Creator Studio">{}</Accordion>
-              <Accordion title="Professional Tools">{}</Accordion>
-              <Accordion title="Settings and Support">{}</Accordion>
-              <div style={{ height: 40 }}></div>
+            <div className="names">
+              <span className="name">Frank Ezene</span>
+              <span className="user-name">@frankezene</span>
+            </div>
+            <div className="follow_count">
+              <span className="following">
+                <span className="count">145</span>Following
+              </span>
+              <span className="followers">
+                <span className="count">20</span>Followers
+              </span>
             </div>
           </div>
+          <div className="navigation" role="navigation">
+            <nav>{navLinks}</nav>
+          </div>
+          <div className="divider" role="separator"></div>
+          <Accordion title="Creator Studio">{}</Accordion>
+          <Accordion title="Professional Tools">{}</Accordion>
+          <Accordion title="Settings and Support">{}</Accordion>
+          <div style={{ height: 40 }}></div>
         </div>
-      )}
+      </div>
     </>
   );
 };

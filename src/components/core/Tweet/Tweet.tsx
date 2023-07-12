@@ -71,11 +71,17 @@ const Tweet = ({
   return (
     <div className="tweet">
       <div className="avatar-wrap">
-        <Avatar src={avatar} hasMenu />
+        <Avatar
+          src={avatar}
+          hasMenu
+          name={name}
+          username={username}
+          status={status}
+        />
       </div>
       <div className="main">
         <div className="user">
-          <div>
+          <div className="dets-one">
             <span className="username">
               <a href="/profile">{username}</a>
             </span>
@@ -94,7 +100,7 @@ const Tweet = ({
               </span>
             )}
           </div>
-          <div>
+          <div className="dets-two">
             <span className="name">@{name}</span>
             <span className="time">.{time}</span>
           </div>

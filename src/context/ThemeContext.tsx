@@ -1,6 +1,7 @@
-import { createContext, useState } from "react";
+import useLocalStorage from "hooks/useLocalStorage";
+import { createContext } from "react";
 
-type Theme = "dark" | "light";
+export type Theme = "dark" | "light";
 
 // Define the type for the context
 interface ThemeContextProps {
@@ -16,7 +17,7 @@ export const ThemeContext = createContext<ThemeContextProps>({
 
 // Define the provider component
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useLocalStorage<Theme>("theme", "light");
 
   // Function to toggle the theme
   const toggleTheme = () => {

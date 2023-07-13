@@ -1,4 +1,7 @@
 //
+import { ThemeContext } from "context/ThemeContext";
+import useOnClickOutside from "hooks/useOnClickOutside";
+import { useContext, useRef, useState } from "react";
 import blIcon from "../../assets/hamburger/blue.svg";
 import bIcon from "../../assets/hamburger/bookmark.svg";
 import cIcon from "../../assets/hamburger/close.svg";
@@ -18,6 +21,15 @@ interface HamburgerMenuProps {
   onClose: () => void;
 }
 const HamburgerMenu = ({ toggle, onClose }: HamburgerMenuProps) => {
+  const [showSettingsMenu, setShowSettingsMenu] = useState<boolean>(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  useOnClickOutside(menuRef, () => setShowSettingsMenu(false));
+
+  let activeBg = "#1da1f2";
+  let inActiveBg = theme === "dark" ? "#ffffff" : "#555";
+
   const links: {
     title: string;
     icon: string;
@@ -102,6 +114,63 @@ const HamburgerMenu = ({ toggle, onClose }: HamburgerMenuProps) => {
           <Accordion title="Creator Studio">{}</Accordion>
           <Accordion title="Professional Tools">{}</Accordion>
           <Accordion title="Settings and Support">{}</Accordion>
+          <div
+            style={{
+              padding: "16px",
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <button
+              className="mode-btn"
+              onClick={toggleTheme}
+              style={{
+                border:
+                  theme === "light"
+                    ? `1px solid ${inActiveBg}`
+                    : `1px solid ${activeBg}`,
+                color: theme === "light" ? inActiveBg : `${activeBg}`,
+                background: "none",
+              }}
+              disabled={theme === "light" && true}
+            >
+              <span
+                className="color"
+                style={{
+                  border:
+                    theme === "light"
+                      ? `1px solid ${inActiveBg}`
+                      : `1px solid ${activeBg}`,
+                }}
+              ></span>
+              <span className="text">light</span>
+            </button>
+            <hr />
+            <button
+              className="mode-btn"
+              onClick={toggleTheme}
+              style={{
+                border:
+                  theme === "dark"
+                    ? `1px solid ${inActiveBg}`
+                    : `1px solid ${activeBg}`,
+                color: theme === "dark" ? inActiveBg : `${activeBg}`,
+                background: "none",
+              }}
+              disabled={theme === "dark" && true}
+            >
+              <span
+                className="color"
+                style={{
+                  border:
+                    theme === "dark"
+                      ? `1px solid ${inActiveBg}`
+                      : `1px solid ${activeBg}`,
+                }}
+              ></span>
+              <span className="text">dim</span>
+            </button>
+          </div>
           <div style={{ height: 40 }}></div>
         </div>
       </div>

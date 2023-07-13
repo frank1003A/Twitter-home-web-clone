@@ -1,16 +1,15 @@
-import { ReactNode } from "react";
+import { forwardRef } from "react";
 
-interface MenuProps {
-  ref?: React.LegacyRef<HTMLDivElement>;
-  children: ReactNode;
-}
+interface MenuProps extends React.ComponentPropsWithRef<"div"> {}
 
-const Menu = ({ children, ref }: MenuProps) => {
-  return (
-    <div className="primary-menu" role="menu" ref={ref}>
-      {children}
-    </div>
-  );
-};
+const Menu = forwardRef<HTMLDivElement, MenuProps>(
+  ({ children, ...rest }, ref) => {
+    return (
+      <div className="primary-menu" role="menu" ref={ref} {...rest}>
+        {children}
+      </div>
+    );
+  }
+);
 
 export default Menu;

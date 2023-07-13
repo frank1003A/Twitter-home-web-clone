@@ -57,7 +57,6 @@ button {
   width: 100%;
   border-radius: 9999px;
   max-height: 50px;
-  background-color: red;
   background-color: var(--primary-color);
   color: white;
   font-size: 20px;
@@ -180,6 +179,59 @@ button {
   // hover
   &:hover {
     background-color: rgb(239 243 244 / 12%);
+  }
+}
+
+.settings-btn {
+  display: flex;
+  padding: 10px;
+  padding-right: 2rem;
+  border: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  color: var(--text);
+  background-color: transparent;
+  font-size: 20px;
+  line-height: 24px;
+  border-radius: 9999px;
+  letter-spacing: normal;
+
+  .img-wrapper {
+    position: relative;
+    img {
+      max-height: 30px;
+      filter: var(--filter);
+    }
+  }
+
+  // hover
+  &:hover {
+    background-color: var(--linkbtnhover);
+  }
+}
+
+.mode-btn {
+  border: none;
+  border-radius: 5px;
+  max-height: 50px;
+  background-color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  padding: 5px 8px;
+  gap: 5px;
+  text-transform: capitalize;
+  letter-spacing: normal;
+  display: flex;
+
+  span.color {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -630,6 +682,7 @@ button {
         .dets-one,
         .dets-two {
           display: flex;
+          align-items: center;
         }
 
         span.username {
@@ -1229,7 +1282,6 @@ button {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: var(--mainbg);
   top: 0;
   left: 0;
   right: 0;
@@ -1357,6 +1409,17 @@ button {
       height: 25px;
     }
   }
+
+  .settings-btn {
+    padding-right: 10px;
+
+    .img-wrapper {
+      display: flex;
+    }
+    span.title {
+      display: none;
+    }
+  }
 }
 
 /*tablets/phone*/
@@ -1459,6 +1522,9 @@ button {
         }
 
         .tweet {
+          &:last-of-type {
+            margin-bottom: 60px;
+          }
           .main {
             gap: 1rem;
             .controls {
@@ -1479,7 +1545,7 @@ button {
                 display: flex;
               }
               span.name {
-                max-width: 100px;
+                max-width: 100%;
                 overflow: hidden;
                 text-overflow: ellipsis;
               }
@@ -1502,5 +1568,9 @@ button {
     .img-wrapper {
       height: 25px;
     }
+  }
+
+  .settings-btn {
+    display: none;
   }
 }

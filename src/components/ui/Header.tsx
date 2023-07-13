@@ -19,11 +19,24 @@ import Button from "../core/buttons/Button";
 import UserCard from "../core/cards/UserCard";
 
 // Image
+import Menu from "components/core/dropdown/Menu";
+import { ThemeContext } from "context/ThemeContext";
+import useOnClickOutside from "hooks/useOnClickOutside";
+import { useContext, useRef, useState } from "react";
 import avatar_image from "../assets/jpg/avatar.jpg";
 import flower from "../assets/svg/flower.svg";
 import Column from "../core/lists/Column";
 
 const Header = () => {
+  const [showSettingsMenu, setShowSettingsMenu] = useState<boolean>(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  useOnClickOutside(menuRef, () => setShowSettingsMenu(false));
+
+  let activeBg = "#1da1f2";
+  let inActiveBg = theme === "dark" ? "#ffffff" : "#555";
+
   const links: {
     title: string;
     icon: string;
@@ -38,7 +51,6 @@ const Header = () => {
     { title: "Bookmarks", icon: bIcon },
     { title: "Verified", icon: vIcon },
     { title: "Profile", icon: pIcon },
-    { title: "More", icon: mIcon },
   ];
 
   const navLinks = links.map((link, index) => {
@@ -65,6 +77,79 @@ const Header = () => {
         <section className="navigation" role="navigation">
           {navLinks}
         </section>
+
+        <Button
+          className="settings-btn"
+          onClick={() => setShowSettingsMenu(!showSettingsMenu)}
+        >
+          <div className="img-wrapper">
+            <img src={mIcon} alt={`more_icon`} />
+          </div>
+          <span className="title">More</span>
+        </Button>
+        {showSettingsMenu && (
+          <Menu
+            ref={menuRef}
+            style={{
+              top: "60%",
+              left: "30%",
+              padding: "16px",
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <button
+              className="mode-btn"
+              onClick={toggleTheme}
+              style={{
+                border:
+                  theme === "light"
+                    ? `1px solid ${inActiveBg}`
+                    : `1px solid ${activeBg}`,
+                color: theme === "light" ? inActiveBg : `${activeBg}`,
+                background: "none",
+              }}
+              disabled={theme === "light" && true}
+            >
+              <span
+                className="color"
+                style={{
+                  border:
+                    theme === "light"
+                      ? `1px solid ${inActiveBg}`
+                      : `1px solid ${activeBg}`,
+                }}
+              ></span>
+              <span className="text">light</span>
+            </button>
+            <hr />
+            <button
+              className="mode-btn"
+              onClick={toggleTheme}
+              style={{
+                border:
+                  theme === "dark"
+                    ? `1px solid ${inActiveBg}`
+                    : `1px solid ${activeBg}`,
+                color: theme === "dark" ? inActiveBg : `${activeBg}`,
+                background: "none",
+              }}
+              disabled={theme === "dark" && true}
+            >
+              <span
+                className="color"
+                style={{
+                  border:
+                    theme === "dark"
+                      ? `1px solid ${inActiveBg}`
+                      : `1px solid ${activeBg}`,
+                }}
+              ></span>
+              <span className="text">dim</span>
+            </button>
+          </Menu>
+        )}
+
         <Button
           className="btn primary"
           id="btn_desk"

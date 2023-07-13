@@ -13,11 +13,9 @@ const Trend = ({ name, tweetVolume, category }: TrendProps) => {
       <section className="header">
         <span className="category">{category}</span>.Trending
       </section>
-      <div className="con-btn">
-        <IconButton style={{ marginLeft: "auto", padding: 5 }}>
-          <img src={dots} alt="dots_svg" />
-        </IconButton>
-      </div>
+      <IconButton style={{ marginLeft: "auto", padding: 5 }}>
+        <img src={dots} alt="dots_svg" />
+      </IconButton>
       <section className="name">{name}</section>
       <section className="twith">
         <span className="trend-count">{tweetVolume}</span>

@@ -121,7 +121,7 @@ const TweetBar = () => {
                 <span>Choose audience</span>
               </div>
               <div className="menu-items">
-                {audience.map((a, i) => {
+                {audience.map((a) => {
                   return (
                     <div className="item" role="menuitem" key={`${a.text}`}>
                       <div

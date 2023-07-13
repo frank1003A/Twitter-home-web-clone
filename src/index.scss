@@ -1,16 +1,14 @@
-// font: twitterchirp
+/* Font: twitterchirp */
 :root {
+  /* Root variables */
   font-family: "Nunito Sans", sans-serif;
-  /* root variables*/
   --logo: invert(47%) sepia(48%) saturate(2176%) hue-rotate(179deg)
     brightness(99%) contrast(90%);
-  --mainbg: #ffffff;
   --primary-color: #1da1f2;
   --cardbg: #f7f9f9;
   --border: #eff3f4;
   --white: #fff;
-
-  // hover
+  --btn_ptd: #000;
   --primaryhover: rgba(0, 0, 0, 0.03);
   --tweethover: rgba(0, 0, 0, 0.03);
   --linkbtnhover: rgba(15, 20, 25, 0.1);
@@ -20,14 +18,10 @@
   --font2: rgb(139, 152, 165);
   --whitefont: rgb(247, 249, 249);
   --filter: invert(1);
-
   --divider: rgb(239, 243, 244);
-
   --badgebd: #ffffff;
   --badgeColor: #ffffff;
   --white_dark: #ffffff;
-
-  //hamburger menu
   --hambg: #ffffff;
   --color1: #000;
   --color2: rgb(139, 152, 165);
@@ -35,7 +29,7 @@
 }
 
 [data-theme="light"] {
-  /* root light*/
+  /* Root light */
   --logo: invert(47%) sepia(48%) saturate(2176%) hue-rotate(179deg)
     brightness(99%) contrast(90%);
   --mainbg: #ffffff;
@@ -43,8 +37,7 @@
   --cardbg: #f7f9f9;
   --border: #eff3f4;
   --white: #fff;
-
-  //hover
+  --btn_ptd: #000;
   --primaryhover: rgba(0, 0, 0, 0.03);
   --tweethover: rgba(0, 0, 0, 0.03);
   --linkbtnhover: rgba(15, 20, 25, 0.1);
@@ -53,14 +46,10 @@
   --font: rgb(83, 100, 113);
   --font2: rgb(139, 152, 165);
   --filter: invert(1);
-
   --divider: rgb(239, 243, 244);
-
   --badgebd: #ffffff;
   --badgeColor: #ffffff;
   --white_dark: #ffffff;
-
-  //hamburger menu
   --hambg: #ffffff;
   --color1: #000;
   --color2: rgb(139, 152, 165);
@@ -68,7 +57,7 @@
 }
 
 [data-theme="dark"] {
-  /* root dark*/
+  /* Root dark */
   --logo: none;
   --mainbg: #15202b;
   --mainbg-dark-rgb: rgb(21, 32, 43);
@@ -77,9 +66,8 @@
   --primary-color: #1e9cf1;
   --border: #38444d;
   --white: #fff;
+  --btn_ptd: #1e9cf1;
   --primaryhover: #273340;
-
-  //hover
   --tweethover: rgba(255, 255, 255, 0.03);
   --linkbtnhover: rgb(239 243 244 / 12%);
   --twticonbtnhover: rgb(239 243 244 / 12%);
@@ -87,20 +75,17 @@
   --font: #8b98a5;
   --font2: rgb(139, 152, 165);
   --filter: none;
-
   --divider: #1e2732;
-
   --badgebd: #273340;
   --badgeColor: #ffffff;
   --white_dark: #000;
-
-  //hamburger menu
   --hambg: rgb(21, 32, 43);
   --color1: rgb(247, 249, 249);
   --color2: rgb(139, 152, 165);
   --count: rgb(247, 249, 249);
 }
 
+/* Global Styles */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -115,7 +100,7 @@ body {
 
 body {
   color: #000;
-  background: var(--bg-main);
+  background: var(--main);
 }
 
 a {

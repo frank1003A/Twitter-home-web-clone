@@ -753,6 +753,10 @@ button {
     padding: 1rem;
     padding-bottom: 10px;
   }
+
+  #ver-btn {
+    background-color: var(--btn_ptd);
+  }
 }
 
 .trend {
@@ -788,10 +792,25 @@ button {
     }
   }
 
-  .con-btn {
+  .icon-btn {
     position: absolute;
     top: 5px;
     right: 6px;
+    img {
+      max-height: 20px;
+      filter: invert(65%) sepia(13%) saturate(333%) hue-rotate(169deg)
+        brightness(89%) contrast(94%);
+    }
+
+    // hover
+    &:hover {
+      background-color: #1d9cf015;
+
+      img {
+        filter: invert(47%) sepia(48%) saturate(2176%) hue-rotate(179deg)
+          brightness(99%) contrast(90%);
+      }
+    }
   }
 }
 

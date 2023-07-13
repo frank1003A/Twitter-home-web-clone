@@ -397,9 +397,11 @@ button {
         max-width: 100%;
         font-size: 20px;
         overflow: hidden;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        word-break: break-word;
         width: 100%;
         min-height: 40px;
-        //line-height: 20px;
         cursor: text;
         &::placeholder {
           color: var(--font);
@@ -1031,7 +1033,7 @@ button {
   z-index: 9999;
   margin-top: 12px;
   top: auto;
-  left: -70px;
+  left: auto;
   right: auto;
   bottom: auto;
 

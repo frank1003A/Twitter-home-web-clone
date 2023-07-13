@@ -1,5 +1,10 @@
-import useLocalStorage from "hooks/useLocalStorage";
-import { createContext } from "react";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 export type Theme = "dark" | "light";
 
@@ -17,15 +22,28 @@ export const ThemeContext = createContext<ThemeContextProps>({
 
 // Define the provider component
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useLocalStorage<Theme>("theme", "light");
+  const [theme, setTheme] = useState<Theme>(() => {
+    // Retrieve the theme value from localStorage or use a default value
+    const storedTheme = localStorage.getItem("theme");
+    return (storedTheme as Theme) || "light";
+  });
 
-  // Function to toggle the theme
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  const toggleTheme = useCallback(() => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  }, []);
+
+  useEffect(() => {
+    // Save the theme value to localStorage whenever it changes
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const themeInit = useMemo(
+    () => ({ theme, toggleTheme }),
+    [theme, toggleTheme]
+  );
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={themeInit}>
       <div
         className="base-wrapper"
         data-theme={theme}

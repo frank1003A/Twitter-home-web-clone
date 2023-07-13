@@ -15,16 +15,11 @@ import MessageBar from "components/ui/MessageBar";
 import TopBar from "components/ui/TopBar";
 
 // Data
-import { Theme } from "context/ThemeContext";
 import trendData from "data/trends.json";
 import tweetData from "data/tweets.json";
 import WTFData from "data/wtf.json";
-import useLocalStorage from "hooks/useLocalStorage";
 
 const Home = () => {
-  // theme
-  const [theme] = useLocalStorage<Theme>("theme", "light");
-
   // mobile responsive hamburger menu component state
   const [toggleHamMenu, setToggleHamMenu] = useState<boolean>(false);
 
@@ -85,9 +80,9 @@ const Home = () => {
             >
               <h4>Subscribe to unlock more features</h4>
               <Button
+                id="ver-btn"
                 style={{
                   width: "fit-content",
-                  backgroundColor: theme === "light" ? "black" : "initial",
                 }}
               >
                 <a href="/tweet">Get Verified</a>

@@ -4,6 +4,7 @@ import blueVerificationBadge from "../../assets/svg/verified-b.svg";
 import Avatar from "../Avatar/Avatar";
 
 //
+import { ReactNode } from "react";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import dots from "../../assets/svg/3dot.svg";
 import likeIcon from "../../assets/tweetcontrols/like.svg";
@@ -12,38 +13,23 @@ import retweetIcon from "../../assets/tweetcontrols/retweet.svg";
 import shareIcon from "../../assets/tweetcontrols/share.svg";
 import viewIcon from "../../assets/tweetcontrols/view.svg";
 import IconButton from "../buttons/IconButton";
+import TweetIcon from "./TweetIcon";
 
-interface TweetProps {
+export interface TweetProps {
   avatar: string;
   username: string;
   name: string;
   /** hours time */
   time: string;
   images?: Array<string>;
-  content?: string;
+  content?: string | ReactNode;
   status: "blue" | "gold" | "none";
   replies: number;
   retweets: number;
   likes: number;
   views: number;
+  hasControls?: boolean;
 }
-
-const TweetIcon = ({
-  icon,
-  value,
-}: {
-  icon: string;
-  value?: string | number;
-}) => {
-  return (
-    <div className="twt-icon">
-      <div className="icon">
-        <img src={icon} alt={`icon-control`} />
-      </div>
-      <span className="value">{value ? value : ""}</span>
-    </div>
-  );
-};
 const Tweet = ({
   content,
   avatar,
@@ -56,6 +42,7 @@ const Tweet = ({
   status,
   time,
   views,
+  hasControls,
 }: TweetProps) => {
   const mediaQuery = useMediaQuery("xsm");
   const collageImageRender = images?.map((img, idx) => {
@@ -68,6 +55,11 @@ const Tweet = ({
       />
     );
   });
+
+  const catchHashTags = (str: string) => {
+    console.log(str.indexOf("#"));
+    return str;
+  };
   return (
     <div className="tweet">
       <div className="avatar-wrap">
@@ -104,66 +96,57 @@ const Tweet = ({
             <span className="name">@{name}</span>
             <span className="time">.{time}</span>
           </div>
-          <IconButton
-            style={{
-              marginLeft: "auto",
-              padding: 5,
-              position: "absolute",
-              right: mediaQuery ? 20 : 5,
-              top: 5,
-              zIndex: 2,
-            }}
-          >
-            <img src={dots} alt="dots_svg" />
-          </IconButton>
+          {hasControls ? (
+            <IconButton
+              style={{
+                marginLeft: "auto",
+                padding: 5,
+                position: "absolute",
+                right: mediaQuery ? 20 : 5,
+                top: 5,
+                zIndex: 2,
+              }}
+            >
+              <img src={dots} alt="dots_svg" />
+            </IconButton>
+          ) : (
+            ""
+          )}
         </div>
         <div className="content">
           {/** TEXT CONTENT HANDLING */}
           {content ? (
             <span className="text-content">{content}</span>
           ) : (
-            <>
-              sdskdkskfmdkfmkdfkmd
-              <div>
-                <br />
-              </div>
-              <div>dsdsfdfdfd</div>
-              <div>
-                <br />
-              </div>
-              <div>fsfsfsfsf</div>
-              <div>
-                <br />
-              </div>
-              <div>🥞🥙🥙🥪🥪🥟🥟</div>
-              <div>
-                <br />
-              </div>
-            </>
+            <>sdskdkskfmdkfmkdfkmd</>
           )}
 
-          {/**IMAGE HANDLING */}
+          {/**IMAGE CONTENT HANDLING */}
           {images && images.length > 1 ? (
             <div className="collage">{collageImageRender}</div>
           ) : (
             images && (
               <div className="image-content">
                 <img
-                  src={images && images[0]}
-                  alt={`${images && images[0]}-media`}
+                  src={images ? images[0] : ""}
+                  alt={`${images ? images[0] : "image"}-media`}
                   draggable={false}
                 />
               </div>
             )
           )}
         </div>
-        <div className="controls">
-          <TweetIcon icon={replyIcon} value={replies} />
-          <TweetIcon icon={retweetIcon} value={retweets} />
-          <TweetIcon icon={likeIcon} value={likes} />
-          <TweetIcon icon={viewIcon} value={views} />
-          <TweetIcon icon={shareIcon} />
-        </div>
+        {hasControls ? (
+          <div className="controls">
+            <TweetIcon icon={replyIcon} value={replies} />
+            <TweetIcon icon={retweetIcon} value={retweets} />
+            <TweetIcon icon={likeIcon} value={likes} />
+            <TweetIcon icon={viewIcon} value={views} />
+            <TweetIcon icon={shareIcon} />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

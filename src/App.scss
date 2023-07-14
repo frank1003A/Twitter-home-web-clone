@@ -227,6 +227,7 @@ button {
   text-transform: capitalize;
   letter-spacing: normal;
   display: flex;
+  transition: all 0.2s ease;
 
   span.color {
     border-radius: 50%;
@@ -1906,6 +1907,10 @@ button {
           .content {
             .tweet {
               margin-bottom: 0px;
+
+              .main {
+                gap: 0px;
+              }
             }
           }
         }

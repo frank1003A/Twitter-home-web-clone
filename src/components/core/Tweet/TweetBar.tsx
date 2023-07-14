@@ -194,7 +194,15 @@ const TweetBar = () => {
           ) : (
             ""
           )}
-          <Button style={{ width: 80, opacity: 0.5 }}>Tweet</Button>
+          <Button
+            disabled={textContext.currentTextCount! < 20}
+            style={{
+              width: 80,
+              opacity: textContext.currentTextCount! < 20 ? 0.5 : 1,
+            }}
+          >
+            Tweet
+          </Button>
         </div>
       </div>
     </div>

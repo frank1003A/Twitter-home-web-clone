@@ -108,7 +108,7 @@ const Retweet = ({ tweet, retweetContent }: RetweetProps) => {
             )
           )}
 
-          {retweetContent ? <Tweet {...retweetContent} /> : ""}
+          {retweetContent ? <Tweet hasMenu {...retweetContent} /> : ""}
         </div>
         <div className="controls">
           <TweetIcon icon={replyIcon} value={tweet.replies} />

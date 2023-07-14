@@ -29,6 +29,7 @@ export interface TweetProps {
   likes: number;
   views: number;
   hasControls?: boolean;
+  hasMenu?: boolean;
 }
 const Tweet = ({
   content,
@@ -43,6 +44,7 @@ const Tweet = ({
   time,
   views,
   hasControls,
+  hasMenu,
 }: TweetProps) => {
   const mediaQuery = useMediaQuery("xsm");
   const collageImageRender = images?.map((img, idx) => {
@@ -56,16 +58,12 @@ const Tweet = ({
     );
   });
 
-  const catchHashTags = (str: string) => {
-    console.log(str.indexOf("#"));
-    return str;
-  };
   return (
     <div className="tweet">
       <div className="avatar-wrap">
         <Avatar
           src={avatar}
-          hasMenu
+          hasMenu={hasMenu ? true : hasMenu}
           name={name}
           username={username}
           status={status}

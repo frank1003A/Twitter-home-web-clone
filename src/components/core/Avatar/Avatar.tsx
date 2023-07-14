@@ -19,7 +19,6 @@ const Avatar = ({ src, hasMenu, username, status, name }: AvatarProps) => {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [menuToggle, setMenuToggle] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
 
   useOnClickOutside(menuRef, () => setMenuToggle(false));
 
@@ -29,12 +28,6 @@ const Avatar = ({ src, hasMenu, username, status, name }: AvatarProps) => {
     } else {
       setMenuToggle(true);
     }
-  };
-
-  const handleContextMenu = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    setIsVisible(true);
   };
 
   useEffect(() => {
@@ -55,7 +48,7 @@ const Avatar = ({ src, hasMenu, username, status, name }: AvatarProps) => {
   }, [src]);
 
   return (
-    <div ref={parentRef} onContextMenu={handleContextMenu}>
+    <div ref={parentRef}>
       <div className="avatar-container">
         {!src ? (
           <div className="avatar-container"></div>

@@ -48,6 +48,7 @@ const Home = () => {
         <TweetBar />
         <Tweet
           hasControls
+          hasMenu={false}
           avatar="https://pbs.twimg.com/profile_images/1601498696629293056/wKIezqxO_400x400.jpg"
           username="Frank Ezene"
           name="FrankEzene"
@@ -60,11 +61,11 @@ const Home = () => {
           content={
             <>
               👋 Hey everyone! <br />
-              Welcome to my Twitter clone! As a passionate software/web
-              developer, I'm excited to share my thoughts and experiences in the
-              tech world. <br />
-              Thank you for checking it out and joining me on this journey!
-              Let's connect and learn together.
+              Welcome to my Twitter web homepage clone! As a passionate
+              software/web developer, I'm excited to share my thoughts and
+              experiences in the tech world. Thank you for checking it out and
+              joining me on this journey! <br /> Let's connect and learn
+              together.
               <br />
               <span className="hashtags">
                 <a href="/#WebDevelopment">#WebDevelopment</a>{" "}
@@ -77,6 +78,7 @@ const Home = () => {
           return (
             <Tweet
               hasControls
+              hasMenu
               key={`${twt.name}_${twt.username}`}
               avatar={twt.avatar}
               name={twt.name}
@@ -100,6 +102,7 @@ const Home = () => {
           return (
             <Tweet
               hasControls
+              hasMenu
               key={`${twt.name}_${twt.username}`}
               avatar={twt.avatar}
               name={twt.name}

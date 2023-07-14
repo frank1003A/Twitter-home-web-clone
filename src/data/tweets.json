@@ -17,11 +17,13 @@
         "username": "cleverCoder42👩‍💻",
         "name": "John_Doe",
         "time": "16h",
+        "content": "Excepteur sint occaecat cupidatat...",
         "status": "blue",
         "replies": 10,
         "retweets": 5,
         "likes": 20,
-        "views": 100
+        "views": 100,
+        "retweet": 9
       },
       {
         "avatar": "https://i.pravatar.cc/150?img=3",

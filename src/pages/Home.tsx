@@ -16,7 +16,7 @@ import TopBar from "components/ui/TopBar";
 
 // Data
 import Retweet from "components/core/Tweet/Retweet";
-import retweetData from "data/tetweet.json";
+import retweetData from "data/retweet.json";
 import trendData from "data/trends.json";
 import tweetData from "data/tweets.json";
 import WTFData from "data/wtf.json";

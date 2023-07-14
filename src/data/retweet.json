@@ -1,0 +1,91 @@
+[
+{
+        "avatar": "https://i.pravatar.cc/150?img=16",
+        "username": "inspiredSoul",
+        "name": "Liam_Wilson",
+        "time": "9h",
+        "content": "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+        "status": "blue",
+        "replies": 12,
+        "retweets": 6,
+        "likes": 32,
+        "views": 95
+      },
+      {
+        "avatar": "https://i.pravatar.cc/150?img=17",
+        "username": "imaginationStation",
+        "name": "Ella_Moore",
+        "time": "3h",
+        "content": "Imagination is the highest kite one can fly. - Lauren Bacall",
+        "status": "none",
+        "replies": 7,
+        "retweets": 3,
+        "likes": 18,
+        "views": 55
+      },{
+    "avatar": "https://i.pravatar.cc/150?img=11",
+    "username": "wordWanderer",
+    "name": "Grace_Campbell",
+    "time": "11h",
+    "images": [
+      "https://i.pravatar.cc/250?img=11"
+    ],
+    "content": "The only way to do great work is to love what you do. - Steve Jobs",
+    "status": "blue",
+    "replies": 9,
+    "retweets": 3,
+    "likes": 16,
+    "views": 60
+  },
+  {
+    "avatar": "https://i.pravatar.cc/150?img=12",
+    "username": "thinker",
+    "name": "William_Johnson",
+    "time": "6h",
+    "content": "Innovation distinguishes between a leader and a follower. - Steve Jobs",
+    "status": "gold",
+    "replies": 13,
+    "retweets": 7,
+    "likes": 35,
+    "views": 110
+  },
+  {
+    "avatar": "https://i.pravatar.cc/150?img=13",
+    "username": "dreamer",
+    "name": "Ava_Brown",
+    "time": "18h",
+    "content": "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
+    "status": "blue",
+    "replies": 6,
+    "retweets": 2,
+    "likes": 14,
+    "views": 45
+  },
+  {
+    "avatar": "https://i.pravatar.cc/150?img=14",
+    "username": "bookworm",
+    "name": "Noah_Miller",
+    "time": "2h",
+    "images": [
+      "https://i.pravatar.cc/250?img=12"
+    ],
+    "content": "A reader lives a thousand lives before he dies. - George R.R. Martin",
+    "status": "gold",
+    "replies": 11,
+    "retweets": 5,
+    "likes": 28,
+    "views": 85
+  },
+  {
+    "avatar": "https://i.pravatar.cc/150?img=15",
+    "username": "optimist",
+    "name": "Sophie_Thomas",
+    "time": "15h",
+    "content": "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
+    "status": "blue",
+    "replies": 8,
+    "retweets": 4,
+    "likes": 20,
+    "views": 75
+  }
+]

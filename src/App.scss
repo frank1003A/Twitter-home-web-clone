@@ -735,7 +735,7 @@ button {
 
           span.hashtags {
             line-height: 2;
-            color: var(--btn_ptd);
+            color: var(--primary-color);
             font-size: 15px;
 
             & a:hover {
@@ -1623,7 +1623,25 @@ button {
         }
 
         .user-card {
-          display: none;
+          position: absolute;
+          bottom: 10px;
+          left: 8px;
+          right: 0px;
+          padding: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          transition: all 0.3s ease-in-out;
+
+          img {
+            max-height: 40px;
+          }
+          .details,
+          .icon-btn {
+            display: none !important;
+          }
         }
       }
     }

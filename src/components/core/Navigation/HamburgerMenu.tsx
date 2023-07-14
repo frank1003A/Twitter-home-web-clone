@@ -120,22 +120,27 @@ const HamburgerMenu = ({ toggle, onClose }: HamburgerMenuProps) => {
               className="mode-btn"
               onClick={toggleTheme}
               style={{
-                border:
-                  theme === "light"
-                    ? `1px solid ${inActiveBg}`
-                    : `1px solid ${activeBg}`,
-                color: theme === "light" ? inActiveBg : `${activeBg}`,
+                border: `1px solid ${
+                  theme === "light" ? inActiveBg : activeBg
+                }`,
+                color: theme === "light" ? inActiveBg : activeBg,
                 background: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: theme === "light" ? "not-allowed" : "pointer",
+                opacity: theme === "light" ? 0.5 : 1,
               }}
               disabled={theme === "light" && true}
             >
               <span
                 className="color"
                 style={{
-                  border:
-                    theme === "light"
-                      ? `1px solid ${inActiveBg}`
-                      : `1px solid ${activeBg}`,
+                  border: `1px solid ${
+                    theme === "light" ? inActiveBg : activeBg
+                  }`,
+                  display: "inline-block",
+                  borderRadius: "50%",
                 }}
               ></span>
               <span className="text">light</span>
@@ -151,6 +156,11 @@ const HamburgerMenu = ({ toggle, onClose }: HamburgerMenuProps) => {
                     : `1px solid ${activeBg}`,
                 color: theme === "dark" ? inActiveBg : `${activeBg}`,
                 background: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: theme === "dark" ? "not-allowed" : "pointer",
+                opacity: theme === "dark" ? 0.5 : 1,
               }}
               disabled={theme === "dark" && true}
             >

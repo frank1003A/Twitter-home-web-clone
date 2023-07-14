@@ -194,7 +194,7 @@ const TweetBar = () => {
           ) : (
             ""
           )}
-          <Button style={{ width: 80 }}>Tweet</Button>
+          <Button style={{ width: 80, opacity: 0.5 }}>Tweet</Button>
         </div>
       </div>
     </div>

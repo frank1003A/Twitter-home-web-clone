@@ -487,13 +487,14 @@ button {
 
       .controls {
         display: flex;
-        padding: 12px 0px 12px 0px;
+        padding: 0px 0px 12px 0px;
         align-items: center;
         justify-content: space-between;
 
         .ico-btns {
           display: flex;
           gap: 6px;
+          transition: all 3s ease-in-out;
 
           .twt-icon-btn {
             display: flex;
@@ -657,8 +658,10 @@ button {
     .avatar-wrap {
       margin-right: 12px;
 
-      img {
-        border: 1px solid var(--border);
+      .avatar-container {
+        img {
+          border: 1px solid var(--border);
+        }
       }
     }
 
@@ -672,12 +675,12 @@ button {
 
       .user {
         display: flex;
-        align-items: center;
         justify-content: flex-start;
         gap: 5px;
         text-align: center;
         color: #8b98a5;
         width: 100%;
+        margin-bottom: 2px;
 
         .dets-one,
         .dets-two {
@@ -689,6 +692,7 @@ button {
           font-size: 16px;
           font-weight: 700;
           color: var(--text);
+          text-transform: capitalize;
 
           a:hover {
             text-decoration: underline;
@@ -697,6 +701,7 @@ button {
 
         span.name {
           max-width: none;
+          text-transform: lowercase;
         }
       }
 
@@ -725,6 +730,18 @@ button {
         .text-content {
           width: 100%;
           position: relative;
+          font-size: 15px;
+          line-height: 20px;
+
+          span.hashtags {
+            line-height: 2;
+            color: var(--btn_ptd);
+            font-size: 15px;
+
+            & a:hover {
+              text-decoration: underline;
+            }
+          }
         }
 
         .image-content {
@@ -760,6 +777,247 @@ button {
         justify-content: flex-start;
         gap: 50px;
         margin-top: 12px;
+      }
+    }
+  }
+
+  .retweet {
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    min-height: 100px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      background-color: var(--tweethover);
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .avatar-wrap {
+      margin-right: 12px;
+
+      .avatar-container {
+        img {
+          border: 1px solid var(--border);
+        }
+      }
+    }
+
+    .main {
+      width: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.2rem;
+
+      .user {
+        display: flex;
+        justify-content: flex-start;
+        gap: 5px;
+        text-align: center;
+        color: #8b98a5;
+        width: 100%;
+        margin-bottom: 2px;
+
+        .dets-one,
+        .dets-two {
+          display: flex;
+          align-items: center;
+        }
+
+        span.username {
+          font-size: 16px;
+          font-weight: 700;
+          color: var(--text);
+          text-transform: capitalize;
+
+          a:hover {
+            text-decoration: underline;
+          }
+        }
+
+        span.name {
+          max-width: none;
+          line-height: 4px;
+          text-transform: lowercase;
+        }
+      }
+
+      .icon-btn {
+        img {
+          max-height: 20px;
+          filter: invert(65%) sepia(13%) saturate(333%) hue-rotate(169deg)
+            brightness(89%) contrast(94%);
+        }
+
+        // hover
+        &:hover {
+          background-color: #1d9cf015;
+
+          img {
+            filter: invert(47%) sepia(48%) saturate(2176%) hue-rotate(179deg)
+              brightness(99%) contrast(90%);
+          }
+        }
+      }
+
+      .content {
+        color: var(--text);
+        width: 100%;
+
+        .text-content {
+          width: 100%;
+          position: relative;
+          font-size: 15px;
+          line-height: 20px;
+        }
+
+        .image-content {
+          margin-top: 12px;
+
+          img {
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            width: 100%;
+          }
+        }
+
+        .collage {
+          margin-top: 12px;
+
+          img {
+            border: 1px solid var(--border);
+          }
+
+          img:first-of-type {
+            border-radius: 10px 0px 0px 10px;
+          }
+
+          img:last-of-type {
+            border-radius: 0px 10px 10px 0px;
+          }
+        }
+      }
+
+      .controls {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 50px;
+        margin-top: 12px;
+      }
+    }
+    .tweet {
+      display: flex;
+      min-height: auto;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      position: relative;
+      margin-top: 10px;
+      align-items: flex-start;
+
+      &:hover {
+        background-color: var(--tweethover);
+      }
+
+      .avatar-wrap {
+        margin-right: 12px;
+
+        .avatar-container {
+          img {
+            border: 1px solid var(--border);
+          }
+        }
+      }
+
+      .main {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+        justify-content: flex-start;
+        flex-direction: column;
+
+        .user {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 5px;
+          text-align: center;
+          color: #8b98a5;
+          width: 100%;
+
+          .dets-one,
+          .dets-two {
+            display: flex;
+            align-items: center;
+          }
+
+          span.username {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+
+            a:hover {
+              text-decoration: underline;
+            }
+          }
+
+          span.name {
+            max-width: none;
+            line-height: 4px;
+          }
+        }
+
+        .content {
+          color: var(--text);
+          width: 100%;
+
+          .text-content {
+            width: 100%;
+            position: relative;
+          }
+
+          .image-content {
+            margin-top: 12px;
+
+            img {
+              border-radius: 10px;
+              border: 1px solid var(--border);
+              width: 100%;
+            }
+          }
+
+          .collage {
+            margin-top: 12px;
+
+            img {
+              border: 1px solid var(--border);
+            }
+
+            img:first-of-type {
+              border-radius: 10px 0px 0px 10px;
+            }
+
+            img:last-of-type {
+              border-radius: 0px 10px 10px 0px;
+            }
+          }
+        }
       }
     }
   }
@@ -899,12 +1157,10 @@ button {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 1px;
-    text-align: center;
-    color: #8b98a5;
+    color: var(--font);
     width: 100%;
 
-    .dets-one,
-    .dets-two {
+    .dets-one {
       display: flex;
     }
 
@@ -920,6 +1176,46 @@ button {
 
     span.name {
       max-width: none;
+      line-height: 4px;
+      text-transform: lowercase;
+    }
+
+    span.text {
+      margin: 0;
+      word-wrap: normal;
+      white-space: normal;
+      word-break: break-all;
+      text-align: start;
+      letter-spacing: 0px;
+      line-height: 20px;
+      max-width: 230px;
+      margin-top: 16px;
+      color: var(--text);
+
+      a {
+        color: var(--primary-color);
+        text-transform: lowercase;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .follow_count {
+    color: var(--font);
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    font-size: 15px;
+    margin-top: 12px;
+
+    .following .count,
+    .followers .count {
+      color: var(--count);
+      font-weight: 700;
+      margin-right: 5px;
     }
   }
 }
@@ -937,6 +1233,8 @@ button {
   }
 
   .main {
+    display: flex;
+    flex-direction: column;
     span.username {
       font-size: 15px;
       line-height: 20px;
@@ -1118,7 +1416,7 @@ button {
     flex-flow: column;
     color: var(--text);
     padding-bottom: 12px;
-
+    justify-content: flex-start;
     .item {
       display: flex;
       padding: 12px 16px;
@@ -1372,10 +1670,20 @@ button {
         .tweet {
           .main {
             .controls {
-              gap: 25px;
+              gap: 20px;
             }
 
             .content {
+              .text-content {
+                display: block;
+                overflow: hidden;
+              }
+
+              .image-content {
+                img {
+                  width: 100%;
+                }
+              }
               .collage {
                 img {
                   width: 100%;
@@ -1390,6 +1698,29 @@ button {
                 }
               }
             }
+          }
+        }
+
+        .retweet {
+          .content {
+            width: 100%;
+            margin-top: 12px;
+            .tweet {
+              .main {
+                .user {
+                  flex-direction: column;
+                  align-items: flex-start;
+
+                  .dets-two {
+                    line-height: 10px;
+                  }
+                }
+              }
+            }
+          }
+
+          .controls {
+            gap: 20px;
           }
         }
       }
@@ -1546,10 +1877,23 @@ button {
               }
               span.name {
                 max-width: 100%;
-                overflow: hidden;
                 text-overflow: ellipsis;
               }
             }
+          }
+        }
+
+        .retweet {
+          .content {
+            .tweet {
+              margin-bottom: 0px;
+            }
+          }
+        }
+
+        .retweet {
+          .twt-icon:nth-child(4) {
+            display: none;
           }
         }
       }

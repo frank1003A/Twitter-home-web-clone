@@ -1,7 +1,6 @@
 //
 import { ThemeContext } from "context/ThemeContext";
-import useOnClickOutside from "hooks/useOnClickOutside";
-import { useContext, useRef, useState } from "react";
+import { useContext } from "react";
 import blIcon from "../../assets/hamburger/blue.svg";
 import bIcon from "../../assets/hamburger/bookmark.svg";
 import cIcon from "../../assets/hamburger/close.svg";
@@ -21,11 +20,7 @@ interface HamburgerMenuProps {
   onClose: () => void;
 }
 const HamburgerMenu = ({ toggle, onClose }: HamburgerMenuProps) => {
-  const [showSettingsMenu, setShowSettingsMenu] = useState<boolean>(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
-
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  useOnClickOutside(menuRef, () => setShowSettingsMenu(false));
 
   let activeBg = "#1da1f2";
   let inActiveBg = theme === "dark" ? "#ffffff" : "#555";

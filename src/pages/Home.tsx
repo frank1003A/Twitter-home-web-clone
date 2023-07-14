@@ -4,7 +4,7 @@ import { useState } from "react";
 import Avatar from "components/core/Avatar/Avatar";
 import SearchInput from "components/core/Input/SearchInput";
 import HamburgerMenu from "components/core/Navigation/HamburgerMenu";
-import Tweet from "components/core/Tweet/Tweet";
+import Tweet, { TweetProps } from "components/core/Tweet/Tweet";
 import TweetBar from "components/core/Tweet/TweetBar";
 import Button from "components/core/buttons/Button";
 import Card from "components/core/cards/Card";
@@ -15,6 +15,8 @@ import MessageBar from "components/ui/MessageBar";
 import TopBar from "components/ui/TopBar";
 
 // Data
+import Retweet from "components/core/Tweet/Retweet";
+import retweetData from "data/tetweet.json";
 import trendData from "data/trends.json";
 import tweetData from "data/tweets.json";
 import WTFData from "data/wtf.json";
@@ -44,9 +46,60 @@ const Home = () => {
           </div>
         </TopBar>
         <TweetBar />
+        <Tweet
+          hasControls
+          avatar="https://pbs.twimg.com/profile_images/1601498696629293056/wKIezqxO_400x400.jpg"
+          username="Frank Ezene"
+          name="FrankEzene"
+          time="1m"
+          status="gold"
+          replies={80}
+          retweets={50}
+          likes={200}
+          views={300}
+          content={
+            <>
+              👋 Hey everyone! <br />
+              Welcome to my Twitter clone! As a passionate software/web
+              developer, I'm excited to share my thoughts and experiences in the
+              tech world. <br />
+              Thank you for checking it out and joining me on this journey!
+              Let's connect and learn together.
+              <br />
+              <span className="hashtags">
+                <a href="/#WebDevelopment">#WebDevelopment</a>{" "}
+                <a href="/#SoftwareEngineering">#SoftwareEngineering</a>
+              </span>
+            </>
+          }
+        />
+        {retweetData.map((twt) => {
+          return (
+            <Tweet
+              hasControls
+              key={`${twt.name}_${twt.username}`}
+              avatar={twt.avatar}
+              name={twt.name}
+              username={twt.username}
+              time={twt.time}
+              status={twt.status as "gold" | "blue"}
+              content={twt.content}
+              images={twt.images}
+              replies={twt.replies}
+              retweets={twt.retweets}
+              likes={twt.likes}
+              views={twt.views}
+            />
+          );
+        })}
+        <Retweet
+          tweet={tweetData[1] as TweetProps}
+          retweetContent={tweetData[7] as TweetProps}
+        />
         {tweetData.map((twt) => {
           return (
             <Tweet
+              hasControls
               key={`${twt.name}_${twt.username}`}
               avatar={twt.avatar}
               name={twt.name}

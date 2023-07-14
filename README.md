@@ -6,6 +6,11 @@ This project is a portfolio project.
 
 - [@FrankEzene](https://github.com/frank1003A)
 
+## Screenshot
+
+![light-mode-screenshot](src/components/assets/tc-light-mode.png)
+![dark-mode-screenshot](src/components/assets/tc-dark-mode.png)
+
 ## Appendix
 
 The Project Employs Practices Like:

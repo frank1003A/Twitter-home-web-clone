@@ -10,7 +10,6 @@ import Button from "components/core/buttons/Button";
 import Card from "components/core/cards/Card";
 import Trend from "components/core/cards/Trend";
 import Section from "components/core/lists/Section";
-import BaseLayout from "components/layout/BaseLayout";
 import MessageBar from "components/ui/MessageBar";
 import TopBar from "components/ui/TopBar";
 
@@ -26,7 +25,7 @@ const Home = () => {
   const [toggleHamMenu, setToggleHamMenu] = useState<boolean>(false);
 
   return (
-    <BaseLayout>
+    <>
       <Section className="home-tweets">
         <TopBar
           title="Home"
@@ -203,7 +202,7 @@ const Home = () => {
         toggle={toggleHamMenu}
         onClose={() => setToggleHamMenu(false)}
       />
-    </BaseLayout>
+    </>
   );
 };
 

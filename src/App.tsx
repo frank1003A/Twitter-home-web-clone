@@ -1,3 +1,4 @@
+import BaseLayout from "components/layout/BaseLayout";
 import Loader from "components/ui/Loader";
 import { useEffect, useState } from "react";
 import "./App.scss";
@@ -24,10 +25,18 @@ function App() {
   }, [timeLeft, mount]);
 
   if (mount) {
-    return <Loader />;
+    return (
+      <BaseLayout>
+        <Loader />
+      </BaseLayout>
+    );
   }
 
-  return <Home />;
+  return (
+    <BaseLayout>
+      <Home />
+    </BaseLayout>
+  );
 }
 
 export default App;

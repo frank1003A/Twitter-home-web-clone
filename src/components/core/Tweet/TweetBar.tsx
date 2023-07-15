@@ -52,7 +52,7 @@ const TweetBar = () => {
       <IconButton
         className="twt-icon-btn"
         id="icon-button-desktop"
-        style={{ padding: 6, marginRight: 2 }}
+        style={{ padding: 6, marginRight: 2, opacity: index === 5 ? 0.5 : 1 }}
         key={`${icon}_key`}
       >
         <img style={{ maxHeight: 20 }} src={icon} alt="media_icon" />
@@ -195,10 +195,10 @@ const TweetBar = () => {
             ""
           )}
           <Button
-            disabled={textContext.currentTextCount! < 20}
+            disabled={!isFocused}
             style={{
               width: 80,
-              opacity: textContext.currentTextCount! < 20 ? 0.5 : 1,
+              opacity: !isFocused ? 0.5 : 1,
             }}
           >
             Tweet

@@ -681,12 +681,22 @@ button {
         text-align: center;
         color: #8b98a5;
         width: 100%;
-        margin-bottom: -2px;
+        margin-bottom: 2px;
 
         .dets-one,
         .dets-two {
           display: flex;
           align-items: center;
+
+          span.badge {
+            display: flex;
+            align-items: flex-end;
+
+            img {
+              max-height: 18px;
+              margin-left: 2px;
+            }
+          }
         }
 
         span.username {
@@ -818,7 +828,6 @@ button {
       justify-content: space-between;
       align-items: flex-start;
       gap: 0.2rem;
-      margin-bottom: -2px;
 
       .user {
         display: flex;
@@ -833,6 +842,16 @@ button {
         .dets-two {
           display: flex;
           align-items: center;
+
+          span.badge {
+            display: flex;
+            align-items: flex-end;
+
+            img {
+              max-height: 18px;
+              margin-left: 2px;
+            }
+          }
         }
 
         span.username {
@@ -1673,10 +1692,14 @@ button {
 
             .text-component {
               max-width: 320px;
+
+              .textarea {
+                max-width: 320px;
+              }
             }
 
             .controls {
-              gap: 20px;
+              gap: 15px;
               justify-content: space-between;
 
               .counter {
@@ -1861,7 +1884,7 @@ button {
             }
 
             .controls {
-              gap: 20px;
+              gap: 15px;
               justify-content: space-between;
 
               .counter {

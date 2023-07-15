@@ -61,10 +61,11 @@ const Home = () => {
           content={
             <>
               👋 Hey everyone! <br />
-              Welcome to my Twitter web homepage clone! As a passionate software
-              / web developer, I'm excited to share my thoughts and experiences
-              in the tech world. Thank you for checking it out and joining me on
-              this journey! <br /> Let's connect and learn together.
+              Welcome to my Twitter web homepage clone! <br /> As a passionate
+              software / web developer, I'm excited to share my thoughts and
+              experiences in the tech world. <br /> Thank you for checking it
+              out and joining me on this journey! <br /> Let's connect and learn
+              together.
               <br />
               <span className="hashtags">
                 <a href="/#WebDevelopment">#WebDevelopment</a>{" "}

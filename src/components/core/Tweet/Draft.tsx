@@ -4,12 +4,14 @@ interface DraftComponentProps {
   handleInputChange: (event: React.SyntheticEvent<HTMLSpanElement>) => void;
   count: number;
   onFocusIn?: () => void;
+  onFocusOut?: () => void;
   text: string;
 }
 const Draft = ({
   handleInputChange,
   count,
   onFocusIn,
+  onFocusOut,
   text,
 }: DraftComponentProps) => {
   const inputRef = useRef<HTMLSpanElement | null>(null);
@@ -18,14 +20,18 @@ const Draft = ({
     let input = inputRef.current!;
 
     // focus events
-    input.addEventListener("focusin", (e) => (onFocusIn ? onFocusIn() : {}));
+    input.addEventListener("focusin", () => (onFocusIn ? onFocusIn() : {}));
+    input.addEventListener("focusout", () => (onFocusOut ? onFocusOut() : {}));
 
     return () => {
       input.removeEventListener("focusin", () =>
         onFocusIn ? onFocusIn() : {}
       );
+      input.addEventListener("focusout", () =>
+        onFocusOut ? onFocusOut() : {}
+      );
     };
-  }, [count, onFocusIn]);
+  }, [count, onFocusIn, onFocusOut]);
 
   return (
     <div className="text-component">

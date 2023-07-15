@@ -13,6 +13,7 @@ export const useMediaQuery = (screen: string) => {
     md: "768px",
     lg: "1024px",
     xl: "1280px",
+    xxl: "1330px",
     "2xl": "1536px",
   };
 

@@ -435,7 +435,6 @@ button {
         padding-bottom: 0px;
         padding-left: 0px;
         padding-right: 0px;
-        max-width: 500px;
         display: flex;
       }
 
@@ -1699,14 +1698,6 @@ button {
               }
             }
 
-            .text-component {
-              max-width: 320px;
-
-              .textarea {
-                max-width: 320px;
-              }
-            }
-
             .controls {
               gap: 15px;
               justify-content: space-between;
@@ -1889,10 +1880,6 @@ button {
                   border-radius: 10px;
                 }
               }
-            }
-
-            .text-component {
-              max-width: 320px;
             }
 
             .controls {

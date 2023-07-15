@@ -33,8 +33,8 @@ const TweetBar = () => {
   const [isFocused, setFocus] = useState<boolean>(false);
 
   //REFS
-  const audRef = useRef<HTMLDivElement | null>(null);
-  const simRef = useRef<HTMLDivElement | null>(null);
+  const audMenuRef = useRef<HTMLDivElement | null>(null);
+  const simMenuRef = useRef<HTMLDivElement | null>(null);
 
   const [textContext, setTextContext] = useState<{
     isMaxed: boolean;
@@ -115,8 +115,8 @@ const TweetBar = () => {
       </div>
       <div className="main">
         {isFocused && (
-          <DropdownButton menuRef={audRef} title="Everyone">
-            <Menu ref={audRef}>
+          <DropdownButton menuRef={audMenuRef} title="Everyone">
+            <Menu ref={audMenuRef}>
               <div className="hd">
                 <span>Choose audience</span>
               </div>
@@ -147,11 +147,11 @@ const TweetBar = () => {
         {isFocused && (
           <div className="extra">
             <DropdownButton
-              menuRef={simRef}
+              menuRef={simMenuRef}
               title="simulate tweet"
               icon={evIcon}
             >
-              <Menu ref={simRef}>
+              <Menu ref={simMenuRef}>
                 <div className="hd">
                   <span>Choose process</span>
                 </div>
@@ -195,10 +195,11 @@ const TweetBar = () => {
             ""
           )}
           <Button
-            disabled={!isFocused}
+            disabled={isFocused}
             style={{
               width: 80,
-              opacity: !isFocused ? 0.5 : 1,
+              opacity: 0.5,
+              cursor: "not-allowed",
             }}
           >
             Tweet

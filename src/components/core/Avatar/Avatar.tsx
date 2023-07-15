@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Menu from "../dropdown/Menu";
 
 //
+import { useMediaQuery } from "hooks/useMediaQuery";
 import useOnClickOutside from "hooks/useOnClickOutside";
 import goldVerificationBadge from "../../assets/svg/gold-badge.svg";
 import blueVerificationBadge from "../../assets/svg/verified-b.svg";
@@ -20,6 +21,10 @@ const Avatar = ({ src, hasMenu, username, status, name }: AvatarProps) => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
 
+  // media queries
+  const tablets = useMediaQuery("xxl");
+  const phones = useMediaQuery("xsm");
+
   useOnClickOutside(menuRef, () => setMenuToggle(false));
 
   const handleMouseLeaveOnMenu = () => {
@@ -36,7 +41,13 @@ const Avatar = ({ src, hasMenu, username, status, name }: AvatarProps) => {
 
       image.addEventListener("mouseenter", () => {
         setMenuToggle(true);
-        setMenuPosition({ x: -80, y: -270 });
+        if (tablets) {
+          setMenuPosition({ x: 35, y: -270 });
+        } else if (phones) {
+          setMenuPosition({ x: 30, y: -270 });
+        } else {
+          setMenuPosition({ x: -80, y: -270 });
+        }
       });
       image.addEventListener("mouseleave", () => setMenuToggle(false));
 
@@ -45,7 +56,7 @@ const Avatar = ({ src, hasMenu, username, status, name }: AvatarProps) => {
         image.addEventListener("mouseleave", () => setMenuToggle(false));
       };
     }
-  }, [src]);
+  }, [phones, src, tablets]);
 
   return (
     <div ref={parentRef}>

@@ -59,12 +59,24 @@ const Home = () => {
           views={300}
           content={
             <>
-              👋 Hey everyone! <br />
-              Welcome to my Twitter web homepage clone! <br /> As a passionate
-              software / web developer, I'm excited to share my thoughts and
-              experiences in the tech world. <br /> Thank you for checking it
-              out and joining me on this journey! <br /> Let's connect and learn
-              together.
+              👋 Hey everyone!
+              <br />
+              <br />
+              Welcome to my Twitter web homepage clone! <br />
+              It's a frontend implementation of the twitter web home page.{" "}
+              <br />
+              <br />
+              It's mobile responsive as can be, no backend or api
+              implementation, although if you want to add that, clone the repo
+              and go ahead.
+              <br />
+              <br />
+              As a passionate software / web developer, I'm excited to share my
+              thoughts and experiences in the tech world. <br />
+              Thank you for checking it out and joining me on this journey!{" "}
+              <br />
+              <br />
+              Let's connect and learn together.
               <br />
               <span className="hashtags">
                 <a href="/#WebDevelopment">#WebDevelopment</a>{" "}
@@ -72,6 +84,32 @@ const Home = () => {
               </span>
             </>
           }
+        />
+        <Retweet
+          tweet={{
+            avatar: "https://i.pravatar.cc/150?img=30",
+            username: "Candace Moore",
+            name: "candacemore",
+            time: "3h",
+            content: (
+              <>
+                I'm already inspired by{" "}
+                <span
+                  className="hashtags"
+                  style={{ color: "var(--primary-color)" }}
+                >
+                  <a href="/profile">@{retweetData[0].name}</a>
+                </span>
+                .
+              </>
+            ),
+            status: "none",
+            replies: 7,
+            retweets: 3,
+            likes: 18,
+            views: 55,
+          }}
+          retweetContent={retweetData[0] as TweetProps}
         />
         {retweetData.map((twt) => {
           return (
@@ -140,7 +178,7 @@ const Home = () => {
                   width: "fit-content",
                 }}
               >
-                <a href="/tweet">Get Verified</a>
+                Get verified
               </Button>
             </div>
           </Card>

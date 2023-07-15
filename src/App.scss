@@ -1183,6 +1183,15 @@ button {
 
     .dets-one {
       display: flex;
+      span.badge {
+        display: flex;
+        align-items: flex-end;
+
+        img {
+          max-height: 18px;
+          margin-left: 2px;
+        }
+      }
     }
 
     span.username {
@@ -1197,7 +1206,6 @@ button {
 
     span.name {
       max-width: none;
-      line-height: 4px;
       text-transform: lowercase;
     }
 

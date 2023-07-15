@@ -40,7 +40,7 @@ header {
 main {
   display: grid;
   grid-template-columns: 600px 1fr;
-  grid-template-areas: "tweets rightbar";
+  grid-template-areas: "feed rightbar";
   grid-area: main;
 
   section {
@@ -333,8 +333,8 @@ button {
   }
 }
 
-.home-tweets {
-  grid-area: tweets;
+.feed {
+  grid-area: feed;
   border-right: 1px solid var(--border);
   position: relative;
 
@@ -1677,10 +1677,10 @@ button {
     }
 
     main {
-      grid-template-areas: "tweets";
+      grid-template-areas: "feed";
       grid-template-columns: 100%;
 
-      .home-tweets {
+      .feed {
         position: relative;
         .top-bar {
           left: 68px;
@@ -1756,7 +1756,6 @@ button {
         .retweet {
           .content {
             width: 100%;
-            margin-top: 12px;
             .tweet {
               .main {
                 .user {
@@ -1766,6 +1765,10 @@ button {
                   .dets-two {
                     line-height: 10px;
                   }
+                }
+
+                .content {
+                  margin-top: 2px;
                 }
               }
             }
@@ -1870,10 +1873,10 @@ button {
     }
 
     main {
-      grid-template-areas: "tweets";
+      grid-template-areas: "feed";
       grid-template-columns: 100%;
 
-      .home-tweets {
+      .feed {
         position: relative;
 
         .tweet-bar {

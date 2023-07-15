@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <>
-      <Section className="home-tweets">
+      <Section className="feed">
         <TopBar
           title="Home"
           toggleHamMenu={() => setToggleHamMenu(!toggleHamMenu)}

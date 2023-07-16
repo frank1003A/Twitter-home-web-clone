@@ -1964,3 +1964,38 @@ button {
     display: none;
   }
 }
+
+@media only screen and (max-width: 370px) {
+  .base-wrapper {
+    main {
+      .feed {
+        .top-bar {
+          .title-wrapper {
+            padding-left: 12px;
+            padding-right: 12px;
+          }
+        }
+        .tweet {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .retweet {
+          padding-left: 12px;
+          padding-right: 12px;
+          .main {
+            .user {
+              flex-direction: column;
+              .dets-two {
+                line-height: normal;
+
+                span.name {
+                  line-height: normal;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

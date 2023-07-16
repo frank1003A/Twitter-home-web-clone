@@ -170,7 +170,12 @@ const Header = () => {
         </Button>
 
         {/** mobile tweet button */}
-        <Button className="btn primary" id="btn_mob" disabled>
+        <Button
+          className="btn primary"
+          id="btn_mob"
+          disabled
+          style={{ marginTop: 5, minHeight: 50 }}
+        >
           <img src={flower} alt="flower_icon" />
         </Button>
         <UserCard>

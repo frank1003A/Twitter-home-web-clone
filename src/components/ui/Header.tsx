@@ -55,7 +55,7 @@ const Header = () => {
 
   const navLinks = links.map((link, index) => {
     return (
-      <LinkButton href={`/${link.title}`} key={index}>
+      <LinkButton href={`/${link.title}`} key={`${link.title}`}>
         <div className="img-wrapper">
           {link.badge && <span className="badge">{link.badge}</span>}
           {link.updateBadge && <span className="update-badge" />}

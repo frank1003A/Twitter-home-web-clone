@@ -832,7 +832,7 @@ button {
       .user {
         display: flex;
         justify-content: flex-start;
-        gap: 5px;
+        gap: 0px;
         text-align: center;
         color: #8b98a5;
         width: 100%;
@@ -1901,7 +1901,7 @@ button {
           .main {
             gap: 1rem;
             .controls {
-              gap: 32px;
+              gap: 25px;
 
               .twt-icon:nth-child(4) {
                 display: none;

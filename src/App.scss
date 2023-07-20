@@ -1997,3 +1997,9 @@ button {
     }
   }
 }
+
+@media only screen and (max-width: 320px) {
+  .base-wrapper main .feed .tweet .main .controls {
+    gap: 10px;
+  }
+}

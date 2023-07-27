@@ -1,7 +1,8 @@
 import { useMediaQuery } from "../../hooks/useMediaQuery";
+import imgUser from "../assets/jpg/avatar.jpg";
 import Avatar from "../core/Avatar/Avatar";
 
-import twLogo from "../assets/svg/blue-twitter-logo.svg";
+import twLogo from "../assets/svg/xlogo.svg";
 
 interface TopBarProps extends React.ComponentPropsWithoutRef<"div"> {
   title: string;
@@ -23,10 +24,18 @@ const TopBar = ({ children, title, toggleHamMenu, ...rest }: TopBarProps) => {
             }}
           >
             <div className="ham-button" onClick={toggleHamMenu}>
-              <Avatar />
+              <Avatar src={imgUser} />
             </div>
             <a href="/twitter/home" className="logo">
-              <img src={twLogo} alt="logo" width={40} height={40} />
+              <img
+                src={twLogo}
+                alt="logo"
+                width={40}
+                height={40}
+                style={{
+                  filter: "var(--filter)",
+                }}
+              />
             </a>
             <div></div>
           </div>

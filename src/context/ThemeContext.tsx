@@ -44,11 +44,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <ThemeContext.Provider value={themeInit}>
-      <div
-        className="base-wrapper"
-        data-theme={theme}
-        suppressHydrationWarning={true}
-      >
+      <div data-theme={theme} suppressHydrationWarning={true}>
         {children}
       </div>
     </ThemeContext.Provider>

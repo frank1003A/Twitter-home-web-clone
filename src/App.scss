@@ -408,157 +408,6 @@ button {
     }
   }
 
-  .tweet-bar {
-    display: flex;
-    border-bottom: 1px solid var(--border);
-    padding: 16px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-
-    .avatar-wrap {
-      display: flex;
-      padding: 12px 0px 12px 0px;
-      margin-right: 12px;
-      position: relative;
-    }
-
-    .main {
-      min-height: max-content;
-      width: 100%;
-
-      .text-component {
-        padding: 20px;
-        padding-bottom: 0px;
-        padding-left: 0px;
-        padding-right: 0px;
-        display: flex;
-        max-height: 60vh;
-        overflow-y: auto;
-      }
-
-      .textarea {
-        resize: none;
-        font-family: inherit;
-        background-color: inherit;
-        color: var(--text);
-        border: none;
-        outline: none;
-        height: auto;
-        max-width: 100%;
-        font-size: 20px;
-        font-weight: 400;
-        overflow: hidden;
-        word-wrap: break-word;
-        white-space: pre-wrap;
-        word-break: break-word;
-        width: 100%;
-        min-height: 40px;
-        cursor: text;
-        &::placeholder {
-          color: var(--font);
-        }
-
-        &[contenteditable]:empty::before {
-          content: "What is happening?!";
-          color: var(--font);
-        }
-      }
-
-      span.text-offset {
-        color: rgb(247, 249, 249);
-        background-color: #8a0d20;
-        font-family: inherit;
-        font-size: 20px;
-        line-height: 20px;
-        border: none;
-        outline: none;
-        height: auto;
-      }
-
-      .extra {
-        width: 100%;
-        color: var(--primary-color);
-        border-bottom: 1px solid var(--border);
-        padding: 0px;
-        padding-bottom: 0.5rem;
-        margin-bottom: 12px;
-      }
-
-      .controls {
-        display: flex;
-        padding: 0px 0px 12px 0px;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        bottom: 0;
-
-        .ico-btns {
-          display: flex;
-          gap: 6px;
-          transition: all 3s ease-in-out;
-
-          .twt-icon-btn {
-            display: flex;
-            border-radius: 50%;
-            padding: 1.5rem;
-            border: none;
-            align-items: center;
-            justify-content: center;
-            background-color: transparent;
-
-            &:hover {
-              background-color: var(--twticonbtnhover);
-            }
-          }
-        }
-
-        .counter {
-          display: flex;
-          gap: 0.8rem;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          margin-left: auto;
-          margin-right: 15px;
-
-          hr {
-            height: 100%;
-            border: 1px solid var(--border);
-          }
-
-          span.count_view {
-            img {
-              max-height: 20px;
-            }
-          }
-          span.add {
-            background: none;
-            width: -moz-fit-content;
-            width: fit-content;
-            height: -moz-fit-content;
-            height: fit-content;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            display: flex;
-            cursor: pointer;
-
-            img {
-              max-height: 20px;
-            }
-
-            &.no-border {
-              border: none;
-            }
-
-            &:hover {
-              background-color: rgba(29, 156, 240, 0.0823529412);
-            }
-          }
-        }
-      }
-    }
-  }
-
   .twt-icon {
     display: flex;
     align-items: center;
@@ -1038,6 +887,315 @@ button {
               border-radius: 0px 10px 10px 0px;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+.tweet-bar {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 16px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  .avatar-wrap {
+    display: flex;
+    padding: 12px 0px 12px 0px;
+    margin-right: 12px;
+    position: relative;
+  }
+
+  .main {
+    min-height: max-content;
+    width: 100%;
+
+    .extra {
+      width: 100%;
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border);
+      padding: 0px;
+      padding-bottom: 0.5rem;
+    }
+
+    .controls {
+      display: flex;
+      padding: 12px 0px 12px 0px;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      bottom: 0;
+      background-color: var(--mainbg);
+
+      .ico-btns {
+        display: flex;
+        gap: 6px;
+        transition: all 3s ease-in-out;
+
+        .twt-icon-btn {
+          display: flex;
+          border-radius: 50%;
+          padding: 1.5rem;
+          border: none;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;
+
+          &:hover {
+            background-color: var(--twticonbtnhover);
+          }
+        }
+      }
+
+      .counter {
+        display: flex;
+        gap: 0.8rem;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin-left: auto;
+        margin-right: 15px;
+
+        hr {
+          height: 100%;
+          border: 1px solid var(--border);
+        }
+
+        span.count_view {
+          img {
+            max-height: 20px;
+          }
+        }
+        span.add {
+          background: none;
+          width: -moz-fit-content;
+          width: fit-content;
+          height: -moz-fit-content;
+          height: fit-content;
+          border: 1px solid var(--border);
+          border-radius: 50px;
+          display: flex;
+          cursor: pointer;
+
+          img {
+            max-height: 20px;
+          }
+
+          &.no-border {
+            border: none;
+          }
+
+          &:hover {
+            background-color: rgba(29, 156, 240, 0.0823529412);
+          }
+        }
+      }
+    }
+  }
+}
+
+.text-component {
+  padding: 20px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: flex;
+
+  .textarea {
+    resize: none;
+    font-family: inherit;
+    background-color: inherit;
+    color: var(--text);
+    border: none;
+    outline: none;
+    height: auto;
+    max-width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+    width: 100%;
+    min-height: 40px;
+    cursor: text;
+    &::placeholder {
+      color: var(--font);
+    }
+
+    &[contenteditable]:empty::before {
+      content: "What is happening?!";
+      color: var(--font);
+    }
+  }
+
+  span.text-offset {
+    color: rgb(247, 249, 249);
+    background-color: #8a0d20;
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 20px;
+    border: none;
+    outline: none;
+    height: auto;
+  }
+}
+
+.modal {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  border: none;
+  background: var(--mainbg);
+  overflow: auto;
+  border-radius: 16px;
+  outline: none;
+  max-height: 90vh;
+  flex-shrink: 1;
+  min-width: 600px;
+  max-width: 600px;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.modal-top {
+  position: sticky;
+  top: 0px;
+  -webkit-backdrop-filter: blur(15.9px);
+  backdrop-filter: blur(15.9px);
+  background-color: var(--mainbg);
+  z-index: 999;
+  border-radius: 16px 16px 0px 0px;
+  margin: 0px;
+  padding: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  img {
+    filter: var(--filter);
+  }
+}
+
+.modal-scroll {
+  padding-bottom: 20px;
+  .scroll {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.modal-tweet-bar {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  .wrapper {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .modal-content-wrapper {
+    display: flex;
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+
+  .modal-control-wrapper {
+    position: sticky;
+    bottom: 0px;
+    background-color: var(--mainbg);
+  }
+
+  .avatar-wrap {
+    display: flex;
+    padding: 12px 0px 12px 0px;
+    margin-right: 12px;
+    position: relative;
+  }
+
+  .main {
+    min-height: max-content;
+    width: 100%;
+  }
+
+  .extra {
+    width: 100%;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border);
+    padding: 0px;
+    padding-bottom: 0.5rem;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: "inherit";
+    padding: 12px 0px 0px 0px;
+
+    .ico-btns {
+      display: flex;
+      gap: 6px;
+      transition: all 3s ease-in-out;
+
+      .twt-icon-btn {
+        display: flex;
+        border-radius: 50%;
+        padding: 1.5rem;
+        border: none;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+
+        &:hover {
+          background-color: var(--twticonbtnhover);
+        }
+      }
+    }
+
+    .counter {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin-left: auto;
+      margin-right: 15px;
+
+      hr {
+        height: 100%;
+        border: 1px solid var(--border);
+      }
+
+      span.count_view {
+        img {
+          max-height: 20px;
+        }
+      }
+      span.add {
+        background: none;
+        width: -moz-fit-content;
+        width: fit-content;
+        height: -moz-fit-content;
+        height: fit-content;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        display: flex;
+        cursor: pointer;
+
+        img {
+          max-height: 20px;
+        }
+
+        &.no-border {
+          border: none;
+        }
+
+        &:hover {
+          background-color: rgba(29, 156, 240, 0.0823529412);
         }
       }
     }
@@ -1619,6 +1777,16 @@ button {
   justify-content: center;
 }
 
+.modal-overlay {
+  background-color: rgba(91, 112, 131, 0.4);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
 /*Small screens, laptops*/
 @media only screen and (max-width: 1330px) {
   .base-wrapper {
@@ -1797,6 +1965,18 @@ button {
       display: none;
     }
   }
+
+  .modal {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    min-height: 100vh;
+    border-radius: 0px;
+    min-width: 100%;
+    transform: none;
+    margin-right: 0px;
+  }
 }
 
 /*tablets/phone*/
@@ -1855,6 +2035,7 @@ button {
           position: absolute;
           bottom: 80px;
           right: 16px;
+          margin-right: 16px;
         }
 
         .user-card {

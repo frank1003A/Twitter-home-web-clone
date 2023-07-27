@@ -6,8 +6,10 @@ interface BaseLayoutProps extends React.ComponentPropsWithoutRef<"main"> {}
 const BaseLayout = ({ children }: BaseLayoutProps) => {
   return (
     <ThemeProvider>
-      <Header />
-      <main>{children}</main>
+      <div className="base-wrapper">
+        <Header />
+        <main>{children}</main>
+      </div>
     </ThemeProvider>
   );
 };

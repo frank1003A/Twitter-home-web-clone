@@ -12,7 +12,7 @@ import mIcon from "../assets/svg/more.svg";
 import nIcon from "../assets/svg/notifications.svg";
 import pIcon from "../assets/svg/profile.svg";
 import vIcon from "../assets/svg/verified.svg";
-import wtl from "../assets/svg/white-twitter-logo.svg";
+import wtl from "../assets/svg/xlogo.svg";
 
 import Avatar from "../core/Avatar/Avatar";
 import Button from "../core/buttons/Button";
@@ -27,8 +27,16 @@ import avatar_image from "../assets/jpg/avatar.jpg";
 import flower from "../assets/svg/flower.svg";
 import Column from "../core/lists/Column";
 
+import TweetModal from "components/core/Tweet/TweetModal";
+
 const Header = () => {
+  // more popup
   const [showSettingsMenu, setShowSettingsMenu] = useState<boolean>(false);
+
+  // Modal
+  const [isOpen, setOpenModal] = useState<boolean>(false);
+
+  // Theme
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -163,8 +171,8 @@ const Header = () => {
         <Button
           className="btn primary"
           id="btn_desk"
-          disabled
           style={{ marginTop: 5, minHeight: 50 }}
+          onClick={() => setOpenModal(true)}
         >
           Tweet
         </Button>
@@ -173,8 +181,8 @@ const Header = () => {
         <Button
           className="btn primary"
           id="btn_mob"
-          disabled
           style={{ marginTop: 5, minHeight: 50 }}
+          onClick={() => setOpenModal(true)}
         >
           <img src={flower} alt="flower_icon" />
         </Button>
@@ -189,6 +197,10 @@ const Header = () => {
           </IconButton>
         </UserCard>
       </div>
+      <TweetModal
+        isOpen={isOpen}
+        handleCloseModal={() => setOpenModal(false)}
+      />
     </header>
   );
 };

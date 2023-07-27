@@ -7,6 +7,7 @@ import cIcon from "../../assets/hamburger/close.svg";
 import lIcon from "../../assets/hamburger/list.svg";
 import plus from "../../assets/hamburger/plus.svg";
 import pIcon from "../../assets/hamburger/profile.svg";
+import imgUser from "../../assets/jpg/avatar.jpg";
 import Accordion from "../Accordion/Accordion";
 
 //
@@ -77,7 +78,7 @@ const HamburgerMenu = ({ toggle, onClose }: HamburgerMenuProps) => {
         <div className="main-content">
           <div className="user">
             <div className="ava_btn">
-              <Avatar />
+              <Avatar src={imgUser} />
               <IconButton
                 style={{
                   border: "1px solid #38444d",

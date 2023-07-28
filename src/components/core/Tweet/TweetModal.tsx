@@ -22,6 +22,7 @@ import Loader from "./Loader";
 //audience dropdown
 import cancelIcon from "../../assets/hamburger/close.svg";
 import eIcon from "../../assets/svg/aud_everyone.svg";
+import backIcon from "../../assets/svg/backarrow.svg";
 import fIcon from "../../assets/svg/flower.svg";
 import tIcon from "../../assets/svg/tw_circle.svg";
 import Modal from "../Modal/Modal";
@@ -132,7 +133,11 @@ const TweetModal = ({ isOpen, handleCloseModal }: TweetModalProps) => {
             }}
             onClick={handleCloseModal}
           >
-            <img src={cancelIcon} alt="close_icon" />
+            {maxMediaQuery ? (
+              <img src={backIcon} alt="back_icon" />
+            ) : (
+              <img src={cancelIcon} alt="close_icon" />
+            )}
           </IconButton>
           {maxMediaQuery && (
             <Button

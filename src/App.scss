@@ -1071,6 +1071,9 @@ button {
   padding: 8px;
   padding-left: 16px;
   padding-right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   img {
     filter: var(--filter);

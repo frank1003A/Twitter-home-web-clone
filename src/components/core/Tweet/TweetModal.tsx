@@ -20,10 +20,12 @@ import Menu from "../dropdown/Menu";
 import Loader from "./Loader";
 
 //audience dropdown
+import cancelIcon from "../../assets/hamburger/close.svg";
 import eIcon from "../../assets/svg/aud_everyone.svg";
 import fIcon from "../../assets/svg/flower.svg";
 import tIcon from "../../assets/svg/tw_circle.svg";
-import Modal from "../Modal";
+import Modal from "../Modal/Modal";
+import ModalHeader from "../Modal/ModalHeader";
 import Draft from "./Draft";
 
 interface TweetModalProps {
@@ -33,6 +35,7 @@ interface TweetModalProps {
 
 const TweetModal = ({ isOpen, handleCloseModal }: TweetModalProps) => {
   const mediaQuery = useMediaQuery("sm");
+  const maxMediaQuery = useMediaQuery("xxl");
   const icons = [mediaIcon, gificon, pollIcon, emojiIcon, schedicon, locIcon];
   const mbIcons = [mediaIcon, gificon, emojiIcon, locIcon];
   const [count, setCount] = useState<number>();
@@ -116,7 +119,34 @@ const TweetModal = ({ isOpen, handleCloseModal }: TweetModalProps) => {
 
   return (
     <div>
-      <Modal isOpen={isOpen} handleCloseModal={handleCloseModal} hasScroll>
+      <Modal
+        isOpen={isOpen}
+        handleCloseModal={handleCloseModal}
+        hasScroll
+        overideHeaderComponent
+      >
+        <ModalHeader>
+          <IconButton
+            style={{
+              padding: "10px",
+            }}
+            onClick={handleCloseModal}
+          >
+            <img src={cancelIcon} alt="close_icon" />
+          </IconButton>
+          {maxMediaQuery && (
+            <Button
+              disabled={isFocused}
+              style={{
+                width: 80,
+                opacity: 0.5,
+                cursor: "not-allowed",
+              }}
+            >
+              Tweet
+            </Button>
+          )}
+        </ModalHeader>
         <div className="modal-tweet-bar">
           <div className="wrapper">
             <div className="modal-content-wrapper">
@@ -211,16 +241,18 @@ const TweetModal = ({ isOpen, handleCloseModal }: TweetModalProps) => {
                 ) : (
                   ""
                 )}
-                <Button
-                  disabled={isFocused}
-                  style={{
-                    width: 80,
-                    opacity: 0.5,
-                    cursor: "not-allowed",
-                  }}
-                >
-                  Tweet
-                </Button>
+                {!maxMediaQuery && (
+                  <Button
+                    disabled={isFocused}
+                    style={{
+                      width: 80,
+                      opacity: 0.5,
+                      cursor: "not-allowed",
+                    }}
+                  >
+                    Tweet
+                  </Button>
+                )}
               </div>
             </div>
           </div>

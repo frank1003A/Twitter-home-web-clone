@@ -26,11 +26,10 @@ import tIcon from "../../assets/svg/tw_circle.svg";
 import Draft from "./Draft";
 
 interface TweetBarProps {
-  inModal?: boolean;
   className?: string;
 }
 
-const TweetBar = ({ inModal, className }: TweetBarProps) => {
+const TweetBar = ({ className }: TweetBarProps) => {
   const mediaQuery = useMediaQuery("sm");
   const icons = [mediaIcon, gificon, pollIcon, emojiIcon, schedicon, locIcon];
   const mbIcons = [mediaIcon, gificon, emojiIcon, locIcon];
@@ -179,71 +178,6 @@ const TweetBar = ({ inModal, className }: TweetBarProps) => {
             </DropdownButton>
           </div>
         )}
-        {!inModal && (
-          <div className="controls">
-            <div className="ico-btns">{iconsRender}</div>
-            {isFocused &&
-            textContext.currentTextCount &&
-            textContext.currentTextCount > 0 ? (
-              <div className="counter">
-                <span className="count-view">
-                  <Loader
-                    count={textContext.currentTextCount}
-                    countView={count as string | number}
-                  />
-                </span>
-                <hr />
-                <span className="add">
-                  <img src={plusIcon} alt="plus_icon" />
-                </span>
-              </div>
-            ) : (
-              ""
-            )}
-            <Button
-              disabled={isFocused}
-              style={{
-                width: 80,
-                opacity: 0.5,
-                cursor: "not-allowed",
-              }}
-            >
-              Tweet
-            </Button>
-          </div>
-        )}
-      </div>
-      {inModal && (
-        <div className="extra">
-          <DropdownButton
-            menuRef={simMenuRef}
-            title="simulate tweet"
-            icon={evIcon}
-          >
-            <Menu ref={simMenuRef}>
-              <div className="hd">
-                <span>Choose process</span>
-              </div>
-              <div className="menu-items">
-                {simulate.map((a, i) => {
-                  return (
-                    <div className="item" role="menuitem" key={`${a.text}`}>
-                      <div
-                        className="img"
-                        style={{ backgroundColor: a.iconColor }}
-                      >
-                        <img src={a.icon} alt={`${a.icon}`} />
-                      </div>
-                      <span className="text">{a.text}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </Menu>
-          </DropdownButton>
-        </div>
-      )}
-      {inModal && (
         <div className="controls">
           <div className="ico-btns">{iconsRender}</div>
           {isFocused &&
@@ -275,7 +209,7 @@ const TweetBar = ({ inModal, className }: TweetBarProps) => {
             Tweet
           </Button>
         </div>
-      )}
+      </div>
     </div>
   );
 };
